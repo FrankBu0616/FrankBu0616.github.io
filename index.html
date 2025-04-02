@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Fanjun (Frank) Bu</title>
   <meta charset="utf-8">
@@ -11,209 +12,240 @@
   <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
   <style>
     body {
-        font-family: 'Jost', sans-serif;
-        font-size: 16px;
+      font-family: 'Jost', sans-serif;
+      font-size: 16px;
     }
+
     .profile-image {
-        width: 100%;
-        max-width: 200px;
-        border-radius: 5px;
+      width: 100%;
+      max-width: 200px;
+      border-radius: 5px;
     }
+
     .sidebar {
-        padding-left: 20px;
-        border-left: 2px solid #ddd;
+      padding-left: 20px;
+      border-left: 2px solid #ddd;
     }
+
     .sidebar-links {
-        margin-top: 15px;
+      margin-top: 15px;
     }
+
     .iframe-container {
-        margin-top: 15px;
+      margin-top: 15px;
     }
+
     .iframe-container iframe {
-        width: 100%;
-        height: 202px;
-        margin-bottom: 10px;
+      width: 100%;
+      height: 202px;
+      margin-bottom: 10px;
     }
   </style>
 </head>
+
 <body>
 
-<!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-static-top">
+  <!-- Navigation -->
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="./CV.pdf">CV</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
   <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <div class="collapse navbar-collapse" id="navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="./CV.pdf">CV</a></li> 
-      </ul>
-    </div>
-  </div>
-</nav>
+    <div class="row">
 
-<!-- Page Content -->
-<div class="container">
-  <div class="row">
+      <!-- LEFT COLUMN (Main Content) -->
+      <div class="col-md-8">
 
-    <!-- LEFT COLUMN (Main Content) -->
-    <div class="col-md-8">
-      
-      <!-- Profile Image -->
-      <img class="profile-image img-responsive" src="self.jpg" alt="Profile Image">
-      
-      <!-- Bio -->
-      <div style="margin-top: 20px; text-align: justify;">
-        I am a Ph.D. Candidate at Cornell Tech under the supervision of <a href="https://tech.cornell.edu/people/wendy-ju/">Prof. Wendy Ju</a>. 
-        My research investigates how context shapes human-robot interaction. I design systems and tools that account for environmental, social, and situational factors in human-centered studies, 
-        aiming to better understand how these factors influence human perceptions and behaviors. By developing methods that help robots interpret and respond to nuanced human cues, my work seeks 
-        to improve the design and deployment of interactive robotic systems. My research bridges design, robotics, and human-computer interaction to create technologies that are adaptable, contextually 
-        aware, and responsive to real-world complexities.
-      </div> 
+        <!-- Profile Image -->
+        <img class="profile-image img-responsive" src="self.jpg" alt="Profile Image">
 
-      <!-- News -->
-      <h3 id="news">News</h3>
-      <ul>
-        <li> New publications at CHI 2025! Stay tuned. 
-        <li>[11/15] Gave a <a href="https://europe.naverlabs.com/updates/2nd-hri-international-symposium/">talk</a> at the 2nd HRI International Symposium held by Naver Labs Europe. </li>
-        <li>[5/28] Start my summer internship at Toyota Research Institute. </li>
-        <li>[5/14] Presented our work Portobello at CHI and received an Honoranle Mention Award!</li>
-        <li>[3/25] Gave a talk at Nokia Bell Labs Responsible AI Seminar. </li>
-      </ul>
+        <!-- Bio -->
+        <div style="margin-top: 20px; text-align: justify;">
+          I am a Ph.D. Candidate at Cornell Tech under the supervision of <a
+            href="https://tech.cornell.edu/people/wendy-ju/">Prof. Wendy Ju</a>.
+          My research investigates how context shapes human-robot interaction. I design systems and tools that account
+          for environmental, social, and situational factors in human-centered studies,
+          aiming to better understand how these factors influence human perceptions and behaviors. By developing methods
+          that help robots interpret and respond to nuanced human cues, my work seeks
+          to improve the design and deployment of interactive robotic systems. My research bridges design, robotics, and
+          human-computer interaction to create technologies that are adaptable, contextually
+          aware, and responsive to real-world complexities.
+        </div>
 
-      <!-- Publications -->
-      <h3 id="publications">Publications</h3>
-      <ul>
-        <li>
-            <strong>Fanjun Bu</strong> and Hiroshi Yasuda. 2025. Boosting Visual Fidelity in Driving
-            Simulations through Diffusion Models. In Extended Abstracts of the CHI
-            Conference on Human Factors in Computing Systems (CHI EA ’25), April
-            26-May 1, 2025, Yokohama, Japan. ACM, New York, NY, USA, 7 pages. 
+        <!-- News -->
+        <h3 id="news">News</h3>
+        <ul>
+          <li> New publications at CHI 2025! Stay tuned.
+          <li>[11/15] Gave a <a href="https://europe.naverlabs.com/updates/2nd-hri-international-symposium/">talk</a> at
+            the 2nd HRI International Symposium held by Naver Labs Europe. </li>
+          <li>[5/28] Start my summer internship at Toyota Research Institute. </li>
+          <li>[5/14] Presented our work Portobello at CHI and received an Honoranle Mention Award!</li>
+          <li>[3/25] Gave a talk at Nokia Bell Labs Responsible AI Seminar. </li>
+        </ul>
+
+        <!-- Publications -->
+        <h3 id="publications">Publications</h3>
+        <ul>
+          <li>
+            Boosting Visual Fidelity in Driving Simulations through Diffusion Models.
+            <br><strong>Fanjun Bu</strong> and Hiroshi Yasuda.
+            <br>Extended Abstracts of the CHI Conference on Human Factors in Computing Systems, 2025
           </li>
           <li>
-            Hannah R. M. Pelikan, <strong>Fanjun Bu</strong>, and Wendy Ju. 2025. The People Behind
-            the Robots: How Wizards Wrangle Robots in Public Deployments. In CHI
-            Conference on Human Factors in Computing Systems (CHI ’25), April 26-
-            May 1, 2025, Yokohama,Japan. ACM, New York, NY, USA, 21 pages. 
+            The People Behind the Robots: How Wizards Wrangle Robots in Public Deployments.
+            <br>Hannah R. M. Pelikan, <strong>Fanjun Bu</strong>, and Wendy Ju.
+            <br>CHI Conference on Human Factors in Computing Systems, 2025
           </li>
-
           <li>
-            Matt Franchi, Maria Teresa Parreira, <strong>Fanjun Bu</strong>, and Wendy Ju. 2025. The
-            Robotability Score: Enabling Harmonious Robot Navigation on Urban Streets.
-            In CHI Conference on Human Factors in Computing Systems (CHI ’25), April
-            26-May 1, 2025, Yokohama, Japan. ACM, New York, NY, USA, 17 pages.
+            The Robotability Score: Enabling Harmonious Robot Navigation on Urban Streets.
+            <br>Matt Franchi*, Maria Teresa Parreira*, <strong>Fanjun Bu*</strong>, and Wendy Ju.
+            <br>CHI Conference on Human Factors in Computing Systems, 2025
           </li>
-          <li><strong>Fanjun Bu</strong>, Wendy Ju. “ReStory: VLM-augmentation of Social Human-Robot
-            Interaction Datasets”. In: Palinko, O. et al. (eds) Social Robotics. ICSR + AI 2024. Lecture Notes in Computer Science, Springer
-            <a href="https://link.springer.com/chapter/10.1007/978-981-96-3525-2_38">[Paper]</a>
+          <li>
+            <a href="https://link.springer.com/chapter/10.1007/978-981-96-3525-2_38">ReStory: VLM-Augmentation of Social Human-Robot Interaction Datasets.</a>
+            <br><strong>Fanjun Bu</strong>, and Wendy Ju.
+            <br>International Conference on Social Robotics, 2024
           </li>
-          <li><strong>Fanjun Bu</strong>, Wendy Ju. “SSUP-HRI: Social Signaling in Urban Public
-            Human-Robot Interaction dataset”. In: Palinko, O. et al. (eds) Social Robotics. ICSR + AI 2024. Lecture Notes in Computer Science, Springer
-            <a href="https://link.springer.com/chapter/10.1007/978-981-96-3525-2_40">[Paper]</a>
+          <li>
+            <a href="https://link.springer.com/chapter/10.1007/978-981-96-3525-2_40">SSUP-HRI: Social signaling in urban public human-robot interaction dataset.</a>
+            <br><strong>Fanjun Bu</strong>, and Wendy Ju.
+            <br>International Conference on Social Robotics, 2024
           </li>
-          <li> Sharon Yavo-Ayalon, Yuzhen Zhang, Ruixiang Han, Swapna Joshi, <strong>Fanjun Bu</strong>, Cooper Murr, Lunshi Zhou, and Wendy Ju. 
-      2024. Behind the Scenes of CXR: Designing a Geo-Synchronized Communal eXtended Reality System. In Designing Interactive Systems Conference (DIS '24). 
-      Association for Computing Machinery, New York, NY, USA, 180–196. https://doi.org/10.1145/3643834.3660680 <strong>Honorable Mention Award</strong></li>
-    <a href="https://dl.acm.org/doi/10.1145/3643834.3660680">[Paper]</a>
-          <li><strong>Fanjun Bu</strong>, Alexandra Bremers, Mark Colley, Wendy Ju.
-            “Field Notes on Deploying Research Robots in Public Spaces”. In Extended Abstracts
-            of the CHI Conference on Human Factors in Computing Systems (CHI EA ’24),
-            May 11–16, 2024, Honolulu, HI, USA. ACM, New York, NY, USA, 6 pages.</li>
-            <a href="https://dl.acm.org/doi/10.1145/3613905.3651044">[Paper]</a>
-          <li><strong>Fanjun Bu</strong> and Wendy Ju. 2024. SSUP-HRI: Social Signaling in Urban Public
-            Human-Robot Interaction dataset. In Workshop on Social Signal Modelling,
-            March 11, 2024, Boulder, CO, USA. ACM, New York, NY, USA, 5 pages.</li>
-          <a href="https://arxiv.org/abs/2403.10994">[arXiv]</a>
-          <li><strong>Fanjun Bu</strong>, Stacey Li, David Goedicke, Mark Colley, Gyanendra Sharma, Wendy Ju.
-            “Portobello: Extending Driving Simulation from the Lab to the Road”. In:
-            Proceedings of the CHI Conference on Human Factors in Computing Systems. 2024,
-            pp. 1–13. <strong>Honorable Mention Award</strong></li>
-          <a href="https://dl.acm.org/doi/full/10.1145/3613904.3642341">[Paper]</a> <a href="https://youtu.be/Y-R6iiF60jY"> [Video Demo]</a>
-          <li>Barry Brown, <strong>Fanjun Bu</strong>, Ilan Mandel, Wendy Ju. “Trash in Motion: Emergent
-            interactions with robotic trashcans in a public square”. In: Proceedings of the CHI
-            Conference on Human Factors in Computing Systems. 2024, pp. 1–15.</li>
-          <a href="https://dl.acm.org/doi/10.1145/3613904.3642610">[Paper]</a>
-          <li><strong>Fanjun Bu*</strong>, Ilan Mandel*, Wen-Ying Lee, Wendy Ju. “Trash Barrel Robots in the
-              City”. In: Companion of the 2023 ACM/IEEE International Conference on
-              Human-Robot Interaction. HRI ’23. Stockholm, Sweden: Association for
-              Computing Machinery, 2023, pp. 875–877.</li>
-          <a href="https://dl.acm.org/doi/abs/10.1145/3568294.3580206">[Paper]</a><a href="https://www.youtube.com/watch?v=pS5ptE2USSo&t=1s&ab_channel=FanjunBu">[Video]</a>
-          <li>David Goedicke, Alexandra WD Bremers, Sam Lee, <strong>Fanjun Bu</strong>, Hiroshi Yasuda,
-            Wendy Ju. “XR-OOM: MiXed Reality driving simulation with real cars for research
-            and design”. In: Proceedings of the 2022 CHI Conference on Human Factors in
-            Computing Systems. 2022, pp. 1–13.</li>
-          <a href="https://dl.acm.org/doi/abs/10.1145/3491102.3517704">[Paper]</a>
-          <li>Jan Ondras, Abrar Anwar, Tong Wu, <strong>Fanjun Bu</strong>, Malte Jung, Jorge Jose Ortiz,
-            Tapomayukh Bhattacharjee. “Human-robot commensality: Bite timing prediction
-            for robot-assisted feeding in groups”. In: 6th Annual Conference on Robot Learning.
-            2022.</li>
-          <a href="https://openreview.net/forum?id=7ZcePvChS7u">[Paper]</a>
-          <li><strong>Fanjun Bu</strong>, Chien-Ming Huang. “Object permanence through audio-visual
-            representations”. In: IEEE Access 9 (2021), pp. 131574–131582.</li>
-          <a href="https://ieeexplore.ieee.org/document/9547333">[Paper]</a> <a href="https://archive.data.jhu.edu/dataset.xhtml?persistentId=doi:10.7281/T1/EP0W7Y">[Dataset]</a>
-              <a href="https://youtu.be/Rj-ZZf3r4g8">[Video]</a>
-          <li>Konstantinos Chatzilygeroudis, Bernardo Fichera, Ilaria Lauzana, <strong>Fanjun Bu</strong>,
-            Kunpeng Yao, Farshad Khadivar, Aude Billard. “Benchmark for bimanual robotic
-            manipulation of semi-deformable objects”. In: IEEE Robotics and Automation
-            Letters 5.2 (2020), pp. 2443–2450.</li>
-              <a href="https://ieeexplore.ieee.org/abstract/document/8989777">[Paper]</a>
-      </ul>
+          <li>
+            <a href="https://dl.acm.org/doi/10.1145/3643834.3660680">Behind the Scenes of CXR: Designing a Geo-Synchronized Communal eXtended Reality System.</a>
+            <br>Sharon Yavo-Ayalon, Yuzhen Zhang, Ruixiang Han, Swapna Joshi, <strong>Fanjun Bu</strong>, Cooper Murr, Lunshi Zhou, and Wendy Ju.
+            <br>Designing Interactive Systems Conference (DIS), 2024
+            <br><strong>Honorable Mention Award</strong>
+          </li>
+          <li>
+            <a href="https://dl.acm.org/doi/10.1145/3613905.3651044">Field Notes on Deploying Research Robots in Public Spaces</a>
+            <br><strong>Fanjun Bu</strong>, Alexandra Bremers, Mark Colley, Wendy Ju.
+            <br>Extended Abstracts of the CHI Conference on Human Factors in Computing Systems, 2024
+          </li>
+          <li>
+            <a href="https://dl.acm.org/doi/full/10.1145/3613904.3642341">Portobello: Extending Driving Simulation from the Lab to the Road.</a>
+            <br><strong>Fanjun Bu</strong>, Stacey Li, David Goedicke, Mark Colley, Gyanendra Sharma, Wendy Ju.
+            <br>CHI Conference on Human Factors in Computing Systems, 2024
+            <br><strong>Honorable Mention Award</strong>
+          </li>
+          <li>
+            <a href="https://dl.acm.org/doi/10.1145/3613904.3642610">Trash in Motion: Emergent interactions with robotic trashcans in a public square.</a>
+            <br>Barry Brown, <strong>Fanjun Bu</strong>, Ilan Mandel, Wendy Ju.
+            <br>CHI Conference on Human Factors in Computing Systems, 2024
+          </li>
+          <li>
+            <a href="https://dl.acm.org/doi/abs/10.1145/3568294.3580206">Trash Barrel Robots in the City.</a>
+            <br><strong>Fanjun Bu*</strong>, Ilan Mandel*, Wen-Ying Lee, Wendy Ju.
+            <br>Companion of the 2023 ACM/IEEE International Conference on Human-Robot Interaction (HRI), 2023
+          </li>
+          <li>
+            <a href="https://dl.acm.org/doi/abs/10.1145/3491102.3517704">XR-OOM: MiXed Reality driving simulation with real cars for research and design.</a>
+            <br>David Goedicke, Alexandra WD Bremers, Sam Lee, <strong>Fanjun Bu</strong>, Hiroshi Yasuda, Wendy Ju.
+            <br>CHI Conference on Human Factors in Computing Systems, 2022
+          </li>
+          <li>
+            <a href="https://openreview.net/forum?id=7ZcePvChS7u">Human-robot commensality: Bite timing prediction for robot-assisted feeding in groups.</a>
+            <br>Jan Ondras, Abrar Anwar, Tong Wu, <strong>Fanjun Bu</strong>, Malte Jung, Jorge Jose Ortiz, Tapomayukh Bhattacharjee.
+            <br>6th Annual Conference on Robot Learning, 2022
+          </li>
+          <li>
+            <a href="https://ieeexplore.ieee.org/document/9547333">Object permanence through audio-visual representations.</a>
+            <br><strong>Fanjun Bu</strong>, Chien-Ming Huang.
+            <br>IEEE Access, 2021
+            <br><a href="https://archive.data.jhu.edu/dataset.xhtml?persistentId=doi:10.7281/T1/EP0W7Y">[Dataset]</a> <a href="https://youtu.be/Rj-ZZf3r4g8">[Video]</a>
+          </li>
+          <li>
+            <a href="https://ieeexplore.ieee.org/abstract/document/8989777">Benchmark for bimanual robotic manipulation of semi-deformable objects.</a>
+            <br>Konstantinos Chatzilygeroudis, Bernardo Fichera, Ilaria Lauzana, <strong>Fanjun Bu</strong>, Kunpeng Yao, Farshad Khadivar, Aude Billard.
+            <br>IEEE Robotics and Automation Letters, 2020
+          </li>
+        </ul>
 
-      <!-- Teaching Assistantships -->
-      <h3 id="teaching">Teaching Assistantships</h3>
-      <ul>
-        <li> [Spring 2024] CS5678 <a href="https://www.cs.cornell.edu/courses/cs5678/"> 3D User Interface </a> </li>
-        <li> [Spring 2023] INFO5755/INFO6755/CS5755/CS675 <a href="https://github.com/FAR-Lab/Mobile_HRI_Lab_Hub">Mobile Human Robot Interaction Design</a> </li>
-        <strong>TA Award</strong>
-        <li> [Fall 2021] CS4750/CS5750/ECE4770/MAE4760.  <a href="https://www.cs.cornell.edu/courses/cs5750/2021fa/"> Foundations of Robotics</a> </li>
-        <strong>TA Award</strong>
-      </ul>
+        <!-- Teaching Assistantships -->
+        <h3 id="teaching">Teaching Assistantships</h3>
+        <ul>
+          <li> [Spring 2024] CS5678 <a href="https://www.cs.cornell.edu/courses/cs5678/"> 3D User Interface </a> </li>
+          <li> [Spring 2023] INFO5755/INFO6755/CS5755/CS675 <a
+              href="https://github.com/FAR-Lab/Mobile_HRI_Lab_Hub">Mobile Human Robot Interaction Design</a> </li>
+          <strong>TA Award</strong>
+          <li> [Fall 2021] CS4750/CS5750/ECE4770/MAE4760. <a href="https://www.cs.cornell.edu/courses/cs5750/2021fa/">
+              Foundations of Robotics</a> </li>
+          <strong>TA Award</strong>
+        </ul>
 
-      <!-- Press -->
-      <h3 id="press">Press</h3>
-      <ul>
-        <li> Staff, <a href="https://www.cnn.com/videos/business/2023/04/11/robotic-trash-cans-nyc-cornell-contd-orig-fj.cnn-business">"These robotic trash cans were filmed to test human-robotic interactions.</a> Watch what happened," CNN Business, April 12, 2023.</li>
-        <li> Ayesha Rascoe, <a href="https://www.npr.org/2023/04/16/1170293941/researchers-released-robot-trash-cans-in-nyc-to-see-how-people-would-react#:~:text=Researchers%20released%20robot%20trash%20cans,how%20people%20would%20react%20%3A%20NPR&text=Books%20Podcast-,Researchers%20released%20robot%20trash%20cans%20in%20NYC%20to%20see%20how,interacted%20with%20the%20robo%2Dbins.">"Researchers released robot trash cans in NYC to see how people would react,"</a> National Public Radio (NPR), April 16, 2023. </li>
-        <li> Patricia Waldron, <a href="https://news.cornell.edu/stories/2023/04/almost-everyone-likes-helpful-trash-robot">"(Almost) everyone likes a helpful trash robot,"</a> Cornell Chronicle, April 19, 2023.</li>
-        <li> Mike Snider, <a href="https://www.usatoday.com/story/news/nation/2023/04/15/video-robot-trash-cans-new-york-city/11666593002/">"Robots in the Big Apple: Robo-trash cans patrolling New York plaza make friends, creep out some,"</a> USA TODAY, April 15, 2023. </li>
-        <li> Evan Ackerman, <a href="https://spectrum.ieee.org/nyc-trash-robots">"Humans (Mostly) Love Trash Robots > Simple robots wander NYC asking for trash and recycling, and it’s adorable,"</a> IEEE Spectrum, Mar 10, 2023.</li> 
-      </ul>
+        <!-- Press -->
+        <h3 id="press">Press</h3>
+        <ul>
+          <li> Staff, <a
+              href="https://www.cnn.com/videos/business/2023/04/11/robotic-trash-cans-nyc-cornell-contd-orig-fj.cnn-business">"These
+              robotic trash cans were filmed to test human-robotic interactions.</a> Watch what happened," CNN Business,
+            April 12, 2023.</li>
+          <li> Ayesha Rascoe, <a
+              href="https://www.npr.org/2023/04/16/1170293941/researchers-released-robot-trash-cans-in-nyc-to-see-how-people-would-react#:~:text=Researchers%20released%20robot%20trash%20cans,how%20people%20would%20react%20%3A%20NPR&text=Books%20Podcast-,Researchers%20released%20robot%20trash%20cans%20in%20NYC%20to%20see%20how,interacted%20with%20the%20robo%2Dbins.">"Researchers
+              released robot trash cans in NYC to see how people would react,"</a> National Public Radio (NPR), April
+            16, 2023. </li>
+          <li> Patricia Waldron, <a
+              href="https://news.cornell.edu/stories/2023/04/almost-everyone-likes-helpful-trash-robot">"(Almost)
+              everyone likes a helpful trash robot,"</a> Cornell Chronicle, April 19, 2023.</li>
+          <li> Mike Snider, <a
+              href="https://www.usatoday.com/story/news/nation/2023/04/15/video-robot-trash-cans-new-york-city/11666593002/">"Robots
+              in the Big Apple: Robo-trash cans patrolling New York plaza make friends, creep out some,"</a> USA TODAY,
+            April 15, 2023. </li>
+          <li> Evan Ackerman, <a href="https://spectrum.ieee.org/nyc-trash-robots">"Humans (Mostly) Love Trash Robots >
+              Simple robots wander NYC asking for trash and recycling, and it’s adorable,"</a> IEEE Spectrum, Mar 10,
+            2023.</li>
+        </ul>
 
-    </div> <!-- /.col-md-8 (LEFT COLUMN) -->
+      </div> <!-- /.col-md-8 (LEFT COLUMN) -->
 
-    <!-- RIGHT COLUMN (Sidebar) -->
-    <div class="col-md-4 sidebar">
-      
-      <!-- Contact Info -->
-      <div style="font-family: 'Oswald', sans-serif; font-size: 24px;"><b>Fanjun (Frank) Bu</b></div>
-      <p>Ph.D. Candidate<br>Computer Science Department<br>Cornell University, Cornell Tech</p>
+      <!-- RIGHT COLUMN (Sidebar) -->
+      <div class="col-md-4 sidebar">
 
-      <!-- Links -->
-      <div class="sidebar-links">
-        <p><a href="https://scholar.google.com/citations?user=Co1HwVcAAAAJ&hl=en">Google Scholar</a></p>
-        <p><a href="https://github.com/FrankBu0616">GitHub</a></p>
-      </div>
+        <!-- Contact Info -->
+        <div style="font-family: 'Oswald', sans-serif; font-size: 24px;"><b>Fanjun (Frank) Bu</b></div>
+        <p>Ph.D. Candidate<br>Computer Science Department<br>Cornell University, Cornell Tech</p>
 
-      <!-- Videos -->
-      <div class="iframe-container">
-        <iframe src="https://www.youtube.com/embed/pS5ptE2USSo" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/Y-R6iiF60jY" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/0C4N8oTKqAg?si=LUJXzc9RgkownVVq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
+        <!-- Links -->
+        <div class="sidebar-links">
+          <p><a href="https://scholar.google.com/citations?user=Co1HwVcAAAAJ&hl=en">Google Scholar</a></p>
+          <p><a href="https://github.com/FrankBu0616">GitHub</a></p>
+        </div>
 
-    </div> <!-- /.col-md-4 (RIGHT COLUMN) -->
+        <!-- Videos -->
+        <div class="iframe-container">
+          <iframe src="https://www.youtube.com/embed/pS5ptE2USSo" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/Y-R6iiF60jY" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/0C4N8oTKqAg?si=LUJXzc9RgkownVVq" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
 
-  </div> <!-- /.row -->
-</div> <!-- /.container -->
+      </div> <!-- /.col-md-4 (RIGHT COLUMN) -->
 
-<!-- Footer -->
-<a style="color:#b5bec9;font-size:0.8em; float:right;" href="https://github.com/mavroudisv/plain-academic">Plain Academic</a> 
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
+
+  <!-- Footer -->
+  <a style="color:#b5bec9;font-size:0.8em; float:right;" href="https://github.com/mavroudisv/plain-academic">Plain
+    Academic</a>
 
 </body>
+
 </html>
