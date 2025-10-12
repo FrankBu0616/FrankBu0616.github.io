@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>Fanjun (Frank) Bu</title>
   <meta charset="utf-8">
@@ -7,213 +8,559 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link href='https://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap' rel='stylesheet'>
   <style>
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #3498db;
+      --accent-color: #e74c3c;
+      --text-color: #2c3e50;
+      --text-secondary: #7f8c8d;
+      --border-color: #ecf0f1;
+      --background-light: #f8f9fa;
+      --shadow: 0 2px 10px rgba(0,0,0,0.1);
+      --shadow-hover: 0 4px 20px rgba(0,0,0,0.15);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-        font-family: 'Jost', sans-serif;
-        font-size: 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: #ffffff;
     }
+
+    .container {
+      max-width: 1200px;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.8rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--secondary-color);
+      position: relative;
+    }
+
+    h3::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background-color: var(--accent-color);
+    }
+
+    /* Profile section */
+    .profile-section {
+      background: linear-gradient(135deg, var(--background-light) 0%, #ffffff 100%);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
     .profile-image {
-        width: 100%;
-        max-width: 200px;
-        border-radius: 5px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
     }
+
+    .profile-image:hover {
+      transform: scale(1.05);
+    }
+
+    .profile-text {
+      flex: 1;
+    }
+
+    .profile-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+    }
+
+    .profile-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .bio-text {
+      text-align: justify;
+      color: var(--text-color);
+      line-height: 1.7;
+    }
+
+    /* Content sections */
+    .content-section {
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .content-section:hover {
+      box-shadow: var(--shadow-hover);
+    }
+
+    /* Lists */
+    ul {
+      padding-left: 0;
+    }
+
+    li {
+      list-style: none;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--border-color);
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    li:before {
+      content: '▶';
+      color: var(--secondary-color);
+      position: absolute;
+      left: 0;
+      top: 0.8rem;
+      font-size: 0.8rem;
+    }
+
+    li:last-child {
+      border-bottom: none;
+    }
+
+    /* Links */
+    a {
+      color: var(--secondary-color);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid transparent;
+    }
+
+    a:hover, a:focus {
+      color: var(--accent-color);
+      border-bottom-color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    /* Awards and highlights */
+    strong {
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+
+    /* Author name highlighting in publications */
+    .author-name {
+      color: #000000;
+      font-weight: 700;
+    }
+
+    /* Conference abbreviation styling */
+    .conference-abbrev {
+      background: var(--background-light);
+      color: var(--text-secondary);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-right: 0.5rem;
+    }
+
+    /* Sidebar */
     .sidebar {
-        padding-left: 20px;
-        border-left: 2px solid #ddd;
+      padding-right: 2rem;
     }
+
+    .sidebar-card {
+      background: var(--background-light);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .sidebar-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .sidebar-subtitle {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.4;
+    }
+
     .sidebar-links {
-        margin-top: 15px;
+      margin-top: 1.5rem;
     }
+
+    .sidebar-links a {
+      display: block;
+      background: transparent;
+      color: var(--secondary-color);
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      margin: 0.5rem 0;
+      font-weight: 400;
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+      text-align: center;
+    }
+
+    .sidebar-links a:hover {
+      background: var(--background-light);
+      color: var(--primary-color);
+      border-color: var(--secondary-color);
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* Video container */
     .iframe-container {
-        margin-top: 15px;
+      margin-top: 2rem;
     }
+
     .iframe-container iframe {
-        width: 100%;
-        height: 202px;
-        margin-bottom: 10px;
+      width: 100%;
+      height: 220px;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .iframe-container iframe:hover {
+      transform: scale(1.02);
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .profile-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+      }
+
+      .profile-image {
+        width: 150px;
+        height: 150px;
+      }
+
+      .profile-title {
+        font-size: 1.8rem;
+      }
+
+      .sidebar {
+        padding-right: 0;
+        margin-bottom: 2rem;
+      }
+
+      .content-section {
+        padding: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 3rem;
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .content-section {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    /* News items styling */
+    #news + ul li {
+      background: var(--background-light);
+      padding: 1rem;
+      margin-bottom: 0.5rem;
+      border-radius: 8px;
+      border-bottom: none;
+      transition: all 0.3s ease;
+    }
+
+    #news + ul li:hover {
+      background: #e8f4fd;
+      transform: translateX(5px);
+    }
+
+    #news + ul li:before {
+      content: '📢';
+      color: var(--accent-color);
     }
   </style>
 </head>
+
 <body>
 
-<!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-static-top">
+  <!-- Page Content -->
   <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <div class="collapse navbar-collapse" id="navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="./CV.pdf">CV</a></li> 
-      </ul>
-    </div>
-  </div>
-</nav>
+    <div class="row">
 
-<!-- Page Content -->
-<div class="container">
-  <div class="row">
+      <!-- LEFT COLUMN (Sidebar) -->
+      <div class="col-md-4 sidebar">
 
-    <!-- LEFT COLUMN (Main Content) -->
-    <div class="col-md-8">
-      
-      <!-- Profile Image -->
-      <img class="profile-image img-responsive" src="self.jpg" alt="Profile Image">
-      
-      <!-- Bio -->
-      <div style="margin-top: 20px; text-align: justify;">
-        I am a Ph.D. Candidate at Cornell Tech under the supervision of <a href="https://tech.cornell.edu/people/wendy-ju/">Prof. Wendy Ju</a>. 
-        My research investigates how context shapes human-robot interaction. I design systems and tools that account for environmental, social, and situational factors in human-centered studies, 
-        aiming to better understand how these factors influence human perceptions and behaviors. By developing methods that help robots interpret and respond to nuanced human cues, my work seeks 
-        to improve the design and deployment of interactive robotic systems. My research bridges design, robotics, and human-computer interaction to create technologies that are adaptable, contextually 
-        aware, and responsive to real-world complexities.
-      </div> 
+        <!-- Contact Info -->
+        <div class="sidebar-card">
+          <div class="sidebar-title">Fanjun (Frank) Bu</div>
+          <p class="sidebar-subtitle">Ph.D. Candidate<br>Computer Science Department<br>Cornell University, Cornell Tech</p>
 
-      <!-- News -->
-      <h3 id="news">News</h3>
-      <ul>
-        <li> New publications at CHI 2025! Stay tuned. 
-        <li>[11/15] Gave a <a href="https://europe.naverlabs.com/updates/2nd-hri-international-symposium/">talk</a> at the 2nd HRI International Symposium held by Naver Labs Europe. </li>
-        <li>[5/28] Start my summer internship at Toyota Research Institute. </li>
-        <li>[5/14] Presented our work Portobello at CHI and received an Honoranle Mention Award!</li>
-        <li>[3/25] Gave a talk at Nokia Bell Labs Responsible AI Seminar. </li>
-      </ul>
+          <!-- Links -->
+          <div class="sidebar-links">
+            <a href="https://scholar.google.com/citations?user=Co1HwVcAAAAJ&hl=en">Google Scholar</a>
+            <a href="https://github.com/FrankBu0616">GitHub</a>
+            <a href="./CV.pdf">Download CV</a>
+          </div>
+        </div>
 
-      <!-- Publications -->
-      <h3 id="publications">Publications</h3>
-      <ul>
-        <li>
-            <strong>Fanjun Bu</strong> and Hiroshi Yasuda. 2025. Boosting Visual Fidelity in Driving
-            Simulations through Diffusion Models. In Extended Abstracts of the CHI
-            Conference on Human Factors in Computing Systems (CHI EA ’25), April
-            26-May 1, 2025, Yokohama, Japan. ACM, New York, NY, USA, 7 pages. 
+        <!-- Videos -->
+        <div class="sidebar-card">
+          <h4 style="margin-bottom: 1rem; color: var(--primary-color);">Research Videos</h4>
+          <div class="iframe-container">
+          <iframe src="https://www.youtube.com/embed/pS5ptE2USSo" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/Y-R6iiF60jY" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/0C4N8oTKqAg?si=LUJXzc9RgkownVVq" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>          </div>
+        </div>
+
+      </div> <!-- /.col-md-4 (LEFT COLUMN) -->
+
+      <!-- RIGHT COLUMN (Main Content) -->
+      <div class="col-md-8">
+
+        <!-- Profile Section -->
+        <div class="profile-section">
+          <img class="profile-image" src="self.jpg" alt="Fanjun (Frank) Bu">
+          <div class="profile-text">
+            <div class="bio-text">
+              I am a Ph.D. Candidate at Cornell Tech under the supervision of <a href="https://tech.cornell.edu/people/wendy-ju/">Prof. Wendy Ju</a>. 
+              My research investigates how context shapes human-robot interaction, with a focus on creating real-world simulations that reveal how people 
+              engage with robotic systems. I design systems and deploy studies in everyday environments to elicit authentic 
+              human responses to hypothetical setups, treating the real world itself as a testbed for simulation. This approach 
+              allows me to examine how environmental, social, and situational factors influence human perceptions and behaviors. 
+              By developing methods that help robots interpret and respond to nuanced human cues, my work seeks to improve the design 
+              and deployment of interactive robotic systems. Bridging design, robotics, and human-computer interaction, I aim to create 
+              technologies that are adaptable, contextually aware, and responsive to the complexities of real-world use.
+            </div>
+          </div>
+        </div>
+
+        <!-- News -->
+        <div class="content-section">
+          <h3 id="news">Latest News</h3>
+          <ul>
+            <li> [June 2025] Returned to Toyota Research Institute for a second internship. </li>
+            <li> [June 2025] Some new publications at CHI 2025!
+            <li> [Nov 2025] Gave a <a href="https://europe.naverlabs.com/updates/2nd-hri-international-symposium/">talk</a> at
+              the 2nd HRI International Symposium held by Naver Labs Europe. </li>
+            <li> [May 2024] Start my summer internship at Toyota Research Institute. </li>
+            <li> [May 2025] Presented our work Portobello at CHI and received an Honorable Mention Award!</li>
+            <li> [May 2025] Gave a talk at Nokia Bell Labs Responsible AI Seminar. </li>
+          </ul>
+        </div>
+
+        <!-- Publications -->
+        <div class="content-section">
+          <h3 id="publications">Publications</h3>
+          <ul>
+          <li>
+            <span class="conference-abbrev">THRI'25</span><a href="https://dl.acm.org/doi/full/10.1145/3731252">Making Sense of Robots in Public Spaces: A Study of Trash Barrel Robots.</a>
+            <br><strong class="author-name">Fanjun Bu</strong>, Kerstin Fischer, and Wendy Ju.
+            <!-- <br>ACM Transactions on Human-Robot Interaction, 2025 -->
           </li>
           <li>
-            Hannah R. M. Pelikan, <strong>Fanjun Bu</strong>, and Wendy Ju. 2025. The People Behind
-            the Robots: How Wizards Wrangle Robots in Public Deployments. In CHI
-            Conference on Human Factors in Computing Systems (CHI ’25), April 26-
-            May 1, 2025, Yokohama,Japan. ACM, New York, NY, USA, 21 pages. 
+            <span class="conference-abbrev">CHI EA'25</span><a href="https://dl.acm.org/doi/full/10.1145/3706599.3720255">Boosting Visual Fidelity in Driving Simulations through Diffusion Models.</a>
+            <br><strong class="author-name">Fanjun Bu</strong> and Hiroshi Yasuda.
+            <!-- <br>Extended Abstracts of the CHI Conference on Human Factors in Computing Systems, 2025 -->
           </li>
-
           <li>
-            Matt Franchi, Maria Teresa Parreira, <strong>Fanjun Bu</strong>, and Wendy Ju. 2025. The
-            Robotability Score: Enabling Harmonious Robot Navigation on Urban Streets.
-            In CHI Conference on Human Factors in Computing Systems (CHI ’25), April
-            26-May 1, 2025, Yokohama, Japan. ACM, New York, NY, USA, 17 pages.
+            <span class="conference-abbrev">CHI'25</span><a href="https://dl.acm.org/doi/full/10.1145/3706598.3713237">The People Behind the Robots: How Wizards Wrangle Robots in Public Deployments.</a>
+            <br>Hannah R. M. Pelikan, <strong class="author-name">Fanjun Bu</strong>, and Wendy Ju.
+            <!-- <br>CHI Conference on Human Factors in Computing Systems, 2025 -->
           </li>
-          <li><strong>Fanjun Bu</strong>, Wendy Ju. “ReStory: VLM-augmentation of Social Human-Robot
-            Interaction Datasets”. In: Palinko, O. et al. (eds) Social Robotics. ICSR + AI 2024. Lecture Notes in Computer Science, Springer
-            <a href="https://link.springer.com/chapter/10.1007/978-981-96-3525-2_38">[Paper]</a>
+          <li>
+            <span class="conference-abbrev">CHI'25</span><a href="https://dl.acm.org/doi/full/10.1145/3706598.3714009">The Robotability Score: Enabling Harmonious Robot Navigation on Urban Streets.</a>
+            <br>Matt Franchi*, Maria Teresa Parreira*, <strong class="author-name">Fanjun Bu*</strong>, and Wendy Ju.
+            <!-- <br>CHI Conference on Human Factors in Computing Systems, 2025 -->
           </li>
-          <li><strong>Fanjun Bu</strong>, Wendy Ju. “SSUP-HRI: Social Signaling in Urban Public
-            Human-Robot Interaction dataset”. In: Palinko, O. et al. (eds) Social Robotics. ICSR + AI 2024. Lecture Notes in Computer Science, Springer
-            <a href="https://link.springer.com/chapter/10.1007/978-981-96-3525-2_40">[Paper]</a>
+          <li>
+            <span class="conference-abbrev">ICSR'24</span><a href="https://link.springer.com/chapter/10.1007/978-981-96-3525-2_38">ReStory: VLM-Augmentation of Social Human-Robot Interaction Datasets.</a>
+            <br><strong class="author-name">Fanjun Bu</strong>, and Wendy Ju.
+            <!-- <br>International Conference on Social Robotics, 2024 -->
           </li>
-          <li> Sharon Yavo-Ayalon, Yuzhen Zhang, Ruixiang Han, Swapna Joshi, <strong>Fanjun Bu</strong>, Cooper Murr, Lunshi Zhou, and Wendy Ju. 
-      2024. Behind the Scenes of CXR: Designing a Geo-Synchronized Communal eXtended Reality System. In Designing Interactive Systems Conference (DIS '24). 
-      Association for Computing Machinery, New York, NY, USA, 180–196. https://doi.org/10.1145/3643834.3660680 <strong>Honorable Mention Award</strong></li>
-    <a href="https://dl.acm.org/doi/10.1145/3643834.3660680">[Paper]</a>
-          <li><strong>Fanjun Bu</strong>, Alexandra Bremers, Mark Colley, Wendy Ju.
-            “Field Notes on Deploying Research Robots in Public Spaces”. In Extended Abstracts
-            of the CHI Conference on Human Factors in Computing Systems (CHI EA ’24),
-            May 11–16, 2024, Honolulu, HI, USA. ACM, New York, NY, USA, 6 pages.</li>
-            <a href="https://dl.acm.org/doi/10.1145/3613905.3651044">[Paper]</a>
-          <li><strong>Fanjun Bu</strong> and Wendy Ju. 2024. SSUP-HRI: Social Signaling in Urban Public
-            Human-Robot Interaction dataset. In Workshop on Social Signal Modelling,
-            March 11, 2024, Boulder, CO, USA. ACM, New York, NY, USA, 5 pages.</li>
-          <a href="https://arxiv.org/abs/2403.10994">[arXiv]</a>
-          <li><strong>Fanjun Bu</strong>, Stacey Li, David Goedicke, Mark Colley, Gyanendra Sharma, Wendy Ju.
-            “Portobello: Extending Driving Simulation from the Lab to the Road”. In:
-            Proceedings of the CHI Conference on Human Factors in Computing Systems. 2024,
-            pp. 1–13. <strong>Honorable Mention Award</strong></li>
-          <a href="https://dl.acm.org/doi/full/10.1145/3613904.3642341">[Paper]</a> <a href="https://youtu.be/Y-R6iiF60jY"> [Video Demo]</a>
-          <li>Barry Brown, <strong>Fanjun Bu</strong>, Ilan Mandel, Wendy Ju. “Trash in Motion: Emergent
-            interactions with robotic trashcans in a public square”. In: Proceedings of the CHI
-            Conference on Human Factors in Computing Systems. 2024, pp. 1–15.</li>
-          <a href="https://dl.acm.org/doi/10.1145/3613904.3642610">[Paper]</a>
-          <li><strong>Fanjun Bu*</strong>, Ilan Mandel*, Wen-Ying Lee, Wendy Ju. “Trash Barrel Robots in the
-              City”. In: Companion of the 2023 ACM/IEEE International Conference on
-              Human-Robot Interaction. HRI ’23. Stockholm, Sweden: Association for
-              Computing Machinery, 2023, pp. 875–877.</li>
-          <a href="https://dl.acm.org/doi/abs/10.1145/3568294.3580206">[Paper]</a><a href="https://www.youtube.com/watch?v=pS5ptE2USSo&t=1s&ab_channel=FanjunBu">[Video]</a>
-          <li>David Goedicke, Alexandra WD Bremers, Sam Lee, <strong>Fanjun Bu</strong>, Hiroshi Yasuda,
-            Wendy Ju. “XR-OOM: MiXed Reality driving simulation with real cars for research
-            and design”. In: Proceedings of the 2022 CHI Conference on Human Factors in
-            Computing Systems. 2022, pp. 1–13.</li>
-          <a href="https://dl.acm.org/doi/abs/10.1145/3491102.3517704">[Paper]</a>
-          <li>Jan Ondras, Abrar Anwar, Tong Wu, <strong>Fanjun Bu</strong>, Malte Jung, Jorge Jose Ortiz,
-            Tapomayukh Bhattacharjee. “Human-robot commensality: Bite timing prediction
-            for robot-assisted feeding in groups”. In: 6th Annual Conference on Robot Learning.
-            2022.</li>
-          <a href="https://openreview.net/forum?id=7ZcePvChS7u">[Paper]</a>
-          <li><strong>Fanjun Bu</strong>, Chien-Ming Huang. “Object permanence through audio-visual
-            representations”. In: IEEE Access 9 (2021), pp. 131574–131582.</li>
-          <a href="https://ieeexplore.ieee.org/document/9547333">[Paper]</a> <a href="https://archive.data.jhu.edu/dataset.xhtml?persistentId=doi:10.7281/T1/EP0W7Y">[Dataset]</a>
-              <a href="https://youtu.be/Rj-ZZf3r4g8">[Video]</a>
-          <li>Konstantinos Chatzilygeroudis, Bernardo Fichera, Ilaria Lauzana, <strong>Fanjun Bu</strong>,
-            Kunpeng Yao, Farshad Khadivar, Aude Billard. “Benchmark for bimanual robotic
-            manipulation of semi-deformable objects”. In: IEEE Robotics and Automation
-            Letters 5.2 (2020), pp. 2443–2450.</li>
-              <a href="https://ieeexplore.ieee.org/abstract/document/8989777">[Paper]</a>
-      </ul>
+          <li>
+            <span class="conference-abbrev">ICSR'24</span><a href="https://link.springer.com/chapter/10.1007/978-981-96-3525-2_40">SSUP-HRI: Social signaling in urban public human-robot interaction dataset.</a>
+            <br><strong class="author-name">Fanjun Bu</strong>, and Wendy Ju.
+            <!-- <br>International Conference on Social Robotics, 2024 -->
+          </li>
+          <li>
+            <span class="conference-abbrev">DIS'24</span><a href="https://dl.acm.org/doi/10.1145/3643834.3660680">Behind the Scenes of CXR: Designing a Geo-Synchronized Communal eXtended Reality System.</a>
+            <br>Sharon Yavo-Ayalon, Yuzhen Zhang, Ruixiang Han, Swapna Joshi, <strong class="author-name">Fanjun Bu</strong>, Cooper Murr, Lunshi Zhou, and Wendy Ju.
+            <!-- <br>Designing Interactive Systems Conference (DIS), 2024 -->
+            <br><strong>Honorable Mention Award</strong>
+          </li>
+          <li>
+            <span class="conference-abbrev">CHI EA'24</span><a href="https://dl.acm.org/doi/10.1145/3613905.3651044">Field Notes on Deploying Research Robots in Public Spaces</a>
+            <br><strong class="author-name">Fanjun Bu</strong>, Alexandra Bremers, Mark Colley, Wendy Ju.
+            <!-- <br>Extended Abstracts of the CHI Conference on Human Factors in Computing Systems, 2024 -->
+          </li>
+          <li>
+            <span class="conference-abbrev">CHI'24</span><a href="https://dl.acm.org/doi/full/10.1145/3613904.3642341">Portobello: Extending Driving Simulation from the Lab to the Road.</a>
+            <br><strong class="author-name">Fanjun Bu</strong>, Stacey Li, David Goedicke, Mark Colley, Gyanendra Sharma, Wendy Ju.
+            <!-- <br>CHI Conference on Human Factors in Computing Systems, 2024 -->
+            <br><strong>Honorable Mention Award</strong>
+          </li>
+          <li>
+            <span class="conference-abbrev">CHI'24</span><a href="https://dl.acm.org/doi/10.1145/3613904.3642610">Trash in Motion: Emergent interactions with robotic trashcans in a public square.</a>
+            <br>Barry Brown, <strong class="author-name">Fanjun Bu</strong>, Ilan Mandel, Wendy Ju.
+            <!-- <br>CHI Conference on Human Factors in Computing Systems, 2024 -->
+          </li>
+          <li>
+            <span class="conference-abbrev">HRI'23</span><a href="https://dl.acm.org/doi/abs/10.1145/3568294.3580206">Trash Barrel Robots in the City.</a>
+            <br><strong class="author-name">Fanjun Bu*</strong>, Ilan Mandel*, Wen-Ying Lee, Wendy Ju.
+            <!-- <br>Companion of the 2023 ACM/IEEE International Conference on Human-Robot Interaction (HRI), 2023 -->
+          </li>
+          <li>
+            <span class="conference-abbrev">CHI'22</span><a href="https://dl.acm.org/doi/abs/10.1145/3491102.3517704">XR-OOM: MiXed Reality driving simulation with real cars for research and design.</a>
+            <br>David Goedicke, Alexandra WD Bremers, Sam Lee, <strong class="author-name">Fanjun Bu</strong>, Hiroshi Yasuda, Wendy Ju.
+            <!-- <br>CHI Conference on Human Factors in Computing Systems, 2022 -->
+          </li>
+          <li>
+            <span class="conference-abbrev">CoRL'22</span><a href="https://openreview.net/forum?id=7ZcePvChS7u">Human-robot commensality: Bite timing prediction for robot-assisted feeding in groups.</a>
+            <br>Jan Ondras, Abrar Anwar, Tong Wu, <strong class="author-name">Fanjun Bu</strong>, Malte Jung, Jorge Jose Ortiz, Tapomayukh Bhattacharjee.
+            <!-- <br>6th Annual Conference on Robot Learning, 2022 -->
+          </li>
+          <li>
+            <span class="conference-abbrev">IEEE Access'21</span><a href="https://ieeexplore.ieee.org/document/9547333">Object permanence through audio-visual representations.</a>
+            <br><strong class="author-name">Fanjun Bu</strong>, Chien-Ming Huang.
+            <!-- <br>IEEE Access, 2021 -->
+            <br><a href="https://archive.data.jhu.edu/dataset.xhtml?persistentId=doi:10.7281/T1/EP0W7Y">[Dataset]</a> <a href="https://youtu.be/Rj-ZZf3r4g8">[Video]</a>
+          </li>
+          <li>
+            <span class="conference-abbrev">RAL'20</span><a href="https://ieeexplore.ieee.org/abstract/document/8989777">Benchmark for bimanual robotic manipulation of semi-deformable objects.</a>
+            <br>Konstantinos Chatzilygeroudis, Bernardo Fichera, Ilaria Lauzana, <strong class="author-name">Fanjun Bu</strong>, Kunpeng Yao, Farshad Khadivar, Aude Billard.
+            <!-- <br>IEEE Robotics and Automation Letters, 2020 -->
+          </li>
+        </div>
 
-      <!-- Teaching Assistantships -->
-      <h3 id="teaching">Teaching Assistantships</h3>
-      <ul>
-        <li> [Spring 2024] CS5678 <a href="https://www.cs.cornell.edu/courses/cs5678/"> 3D User Interface </a> </li>
-        <li> [Spring 2023] INFO5755/INFO6755/CS5755/CS675 <a href="https://github.com/FAR-Lab/Mobile_HRI_Lab_Hub">Mobile Human Robot Interaction Design</a> </li>
-        <strong>TA Award</strong>
-        <li> [Fall 2021] CS4750/CS5750/ECE4770/MAE4760.  <a href="https://www.cs.cornell.edu/courses/cs5750/2021fa/"> Foundations of Robotics</a> </li>
-        <strong>TA Award</strong>
-      </ul>
+        <!-- Teaching Assistantships -->
+        <div class="content-section">
+          <h3 id="teaching">Teaching Assistantships</h3>
+          <ul>
+            <li> [Spring 2024] CS5678 <a href="https://www.cs.cornell.edu/courses/cs5678/"> 3D User Interface </a> </li>
+            <li> [Spring 2023] INFO5755/INFO6755/CS5755/CS675 <a
+                href="https://github.com/FAR-Lab/Mobile_HRI_Lab_Hub">Mobile Human Robot Interaction Design</a> 
+              <br><strong>TA Award</strong></li>
+            <li> [Fall 2021] CS4750/CS5750/ECE4770/MAE4760. <a href="https://www.cs.cornell.edu/courses/cs5750/2021fa/">
+                Foundations of Robotics</a> 
+              <br><strong>TA Award</strong></li>
+          </ul>
+        </div>
 
-      <!-- Press -->
-      <h3 id="press">Press</h3>
-      <ul>
-        <li> Staff, <a href="https://www.cnn.com/videos/business/2023/04/11/robotic-trash-cans-nyc-cornell-contd-orig-fj.cnn-business">"These robotic trash cans were filmed to test human-robotic interactions.</a> Watch what happened," CNN Business, April 12, 2023.</li>
-        <li> Ayesha Rascoe, <a href="https://www.npr.org/2023/04/16/1170293941/researchers-released-robot-trash-cans-in-nyc-to-see-how-people-would-react#:~:text=Researchers%20released%20robot%20trash%20cans,how%20people%20would%20react%20%3A%20NPR&text=Books%20Podcast-,Researchers%20released%20robot%20trash%20cans%20in%20NYC%20to%20see%20how,interacted%20with%20the%20robo%2Dbins.">"Researchers released robot trash cans in NYC to see how people would react,"</a> National Public Radio (NPR), April 16, 2023. </li>
-        <li> Patricia Waldron, <a href="https://news.cornell.edu/stories/2023/04/almost-everyone-likes-helpful-trash-robot">"(Almost) everyone likes a helpful trash robot,"</a> Cornell Chronicle, April 19, 2023.</li>
-        <li> Mike Snider, <a href="https://www.usatoday.com/story/news/nation/2023/04/15/video-robot-trash-cans-new-york-city/11666593002/">"Robots in the Big Apple: Robo-trash cans patrolling New York plaza make friends, creep out some,"</a> USA TODAY, April 15, 2023. </li>
-        <li> Evan Ackerman, <a href="https://spectrum.ieee.org/nyc-trash-robots">"Humans (Mostly) Love Trash Robots > Simple robots wander NYC asking for trash and recycling, and it’s adorable,"</a> IEEE Spectrum, Mar 10, 2023.</li> 
-      </ul>
+        <!-- Press -->
+        <div class="content-section">
+          <h3 id="press">Press Coverage</h3>
+          <ul>
+          <li> Staff, <a
+              href="https://www.cnn.com/videos/business/2023/04/11/robotic-trash-cans-nyc-cornell-contd-orig-fj.cnn-business">"These
+              robotic trash cans were filmed to test human-robotic interactions.</a> Watch what happened," CNN Business,
+            April 12, 2023.</li>
+          <li> Ayesha Rascoe, <a
+              href="https://www.npr.org/2023/04/16/1170293941/researchers-released-robot-trash-cans-in-nyc-to-see-how-people-would-react#:~:text=Researchers%20released%20robot%20trash%20cans,how%20people%20would%20react%20%3A%20NPR&text=Books%20Podcast-,Researchers%20released%20robot%20trash%20cans%20in%20NYC%20to%20see%20how,interacted%20with%20the%20robo%2Dbins.">"Researchers
+              released robot trash cans in NYC to see how people would react,"</a> National Public Radio (NPR), April
+            16, 2023. </li>
+          <li> Patricia Waldron, <a
+              href="https://news.cornell.edu/stories/2023/04/almost-everyone-likes-helpful-trash-robot">"(Almost)
+              everyone likes a helpful trash robot,"</a> Cornell Chronicle, April 19, 2023.</li>
+          <li> Mike Snider, <a
+              href="https://www.usatoday.com/story/news/nation/2023/04/15/video-robot-trash-cans-new-york-city/11666593002/">"Robots
+              in the Big Apple: Robo-trash cans patrolling New York plaza make friends, creep out some,"</a> USA TODAY,
+            April 15, 2023. </li>
+          <li> Evan Ackerman, <a href="https://spectrum.ieee.org/nyc-trash-robots">"Humans (Mostly) Love Trash Robots >
+              Simple robots wander NYC asking for trash and recycling, and it’s adorable,"</a> IEEE Spectrum, Mar 10,
+            2023.</li>
+        </div>
 
-    </div> <!-- /.col-md-8 (LEFT COLUMN) -->
+      </div> <!-- /.col-md-8 (RIGHT COLUMN) -->
 
-    <!-- RIGHT COLUMN (Sidebar) -->
-    <div class="col-md-4 sidebar">
-      
-      <!-- Contact Info -->
-      <div style="font-family: 'Oswald', sans-serif; font-size: 24px;"><b>Fanjun (Frank) Bu</b></div>
-      <p>Ph.D. Candidate<br>Computer Science Department<br>Cornell University, Cornell Tech</p>
+    </div> <!-- /.row -->
+  </div> <!-- /.container -->
 
-      <!-- Links -->
-      <div class="sidebar-links">
-        <p><a href="https://scholar.google.com/citations?user=Co1HwVcAAAAJ&hl=en">Google Scholar</a></p>
-        <p><a href="https://github.com/FrankBu0616">GitHub</a></p>
-      </div>
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
 
-      <!-- Videos -->
-      <div class="iframe-container">
-        <iframe src="https://www.youtube.com/embed/pS5ptE2USSo" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/Y-R6iiF60jY" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/0C4N8oTKqAg?si=LUJXzc9RgkownVVq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
-
-    </div> <!-- /.col-md-4 (RIGHT COLUMN) -->
-
-  </div> <!-- /.row -->
-</div> <!-- /.container -->
-
-<!-- Footer -->
-<a style="color:#b5bec9;font-size:0.8em; float:right;" href="https://github.com/mavroudisv/plain-academic">Plain Academic</a> 
+    // Add loading animation
+    window.addEventListener('load', function() {
+      document.body.style.opacity = '0';
+      document.body.style.transition = 'opacity 0.5s ease-in-out';
+      setTimeout(() => {
+        document.body.style.opacity = '1';
+      }, 100);
+    });
+  </script>
 
 </body>
+
 </html>
