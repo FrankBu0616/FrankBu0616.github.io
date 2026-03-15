@@ -1,560 +1,696 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <title>HRI researcher | Fanjun (Frank) Bu</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Ph.D. candidate Frank Bu investigates how context shapes human‑robot interaction by deploying real‑world simulations and field studies. Research at Cornell Tech supervised by Prof. Wendy Ju." />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap' rel='stylesheet'>
+  <title>Fanjun (Frank) Bu — HRI Researcher</title>
+  <meta name="description" content="Ph.D. candidate Frank Bu investigates how context shapes human-robot interaction by deploying real-world simulations and field studies. Research at Cornell Tech supervised by Prof. Wendy Ju.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --primary-color: #2c3e50;
-      --secondary-color: #3498db;
-      --accent-color: #e74c3c;
-      --text-color: #2c3e50;
-      --text-secondary: #7f8c8d;
-      --border-color: #ecf0f1;
-      --background-light: #f8f9fa;
-      --shadow: 0 2px 10px rgba(0,0,0,0.1);
-      --shadow-hover: 0 4px 20px rgba(0,0,0,0.15);
+      --fg: #1a1a1a;
+      --fg-secondary: #555;
+      --fg-muted: #888;
+      --bg: #fff;
+      --bg-alt: #fafafa;
+      --accent: #2563eb;
+      --accent-light: #dbeafe;
+      --border: #e5e5e5;
+      --radius: 6px;
+      --max-w: 820px;
+      --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-serif: 'IBM Plex Serif', Georgia, serif;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      color: var(--text-color);
-      background-color: #ffffff;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--fg);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
     }
 
-    .container {
-      max-width: 1200px;
-    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-    /* Typography */
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-      color: var(--primary-color);
-      margin-bottom: 1rem;
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
-
-    h3 {
-      font-size: 1.8rem;
-      margin-top: 2.5rem;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid var(--secondary-color);
-      position: relative;
-    }
-
-    h3::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 50px;
-      height: 2px;
-      background-color: var(--accent-color);
-    }
-
-    /* Profile section */
-    .profile-section {
-      background: linear-gradient(135deg, var(--background-light) 0%, #ffffff 100%);
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: var(--shadow);
-      margin-bottom: 2rem;
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.5rem;
       display: flex;
       align-items: center;
-      gap: 2rem;
+      justify-content: space-between;
+      height: 52px;
+    }
+    .nav-name {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--fg);
+      letter-spacing: -0.01em;
+    }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--fg-secondary);
+      text-decoration: none;
+      transition: color .15s;
+    }
+    .nav-links a:hover { color: var(--fg); text-decoration: none; }
+
+    /* ── Main container ── */
+    main {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.5rem;
     }
 
-    .profile-image {
-      width: 180px;
-      height: 180px;
+    /* ── Job market banner ── */
+    .job-banner {
+      background: var(--accent-light);
+      border: 1px solid #bfdbfe;
+      border-radius: var(--radius);
+      padding: .7rem 1.2rem;
+      margin-top: 1.5rem;
+      font-size: 14px;
+      color: var(--fg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+    .job-banner strong { font-weight: 600; }
+    .job-banner a {
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      display: flex;
+      align-items: flex-start;
+      gap: 2.5rem;
+      padding: 2.5rem 0 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-img {
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s ease;
+      flex-shrink: 0;
+      filter: grayscale(15%);
     }
-
-    .profile-image:hover {
-      transform: scale(1.05);
-    }
-
-    .profile-text {
-      flex: 1;
-    }
-
-    .profile-title {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: var(--primary-color);
-    }
-
-    .profile-subtitle {
-      font-size: 1.1rem;
-      color: var(--text-secondary);
-      margin-bottom: 1rem;
-    }
-
-    .bio-text {
-      text-align: justify;
-      color: var(--text-color);
-      line-height: 1.7;
-    }
-
-    /* Content sections */
-    .content-section {
-      background: #ffffff;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: var(--shadow);
-      margin-bottom: 2rem;
-      transition: box-shadow 0.3s ease;
-    }
-
-    .content-section:hover {
-      box-shadow: var(--shadow-hover);
-    }
-
-    /* Lists */
-    ul {
-      padding-left: 0;
-    }
-
-    li {
-      list-style: none;
-      padding: 0.8rem 0;
-      border-bottom: 1px solid var(--border-color);
-      position: relative;
-      padding-left: 1.5rem;
-    }
-
-    li:before {
-      content: '▶';
-      color: var(--secondary-color);
-      position: absolute;
-      left: 0;
-      top: 0.8rem;
-      font-size: 0.8rem;
-    }
-
-    li:last-child {
-      border-bottom: none;
-    }
-
-    /* Links */
-    a {
-      color: var(--secondary-color);
-      text-decoration: none;
-      transition: all 0.3s ease;
-      border-bottom: 1px solid transparent;
-    }
-
-    a:hover, a:focus {
-      color: var(--accent-color);
-      border-bottom-color: var(--accent-color);
-      text-decoration: none;
-    }
-
-    /* Awards and highlights */
-    strong {
-      color: var(--accent-color);
-      font-weight: 600;
-    }
-
-    /* Author name highlighting in publications */
-    .author-name {
-      color: #000000;
-      font-weight: 700;
-    }
-
-    /* Conference abbreviation styling */
-    .conference-abbrev {
-      background: var(--background-light);
-      color: var(--text-secondary);
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      font-size: 1.5rem;
+    .hero-text h1 {
+      font-family: var(--font-serif);
+      font-size: 1.85rem;
       font-weight: 500;
-      margin-right: 0.5rem;
+      letter-spacing: -0.02em;
+      margin-bottom: .35rem;
+    }
+    .hero-text .subtitle {
+      color: var(--fg-muted);
+      font-size: 14px;
+      margin-bottom: .75rem;
+    }
+    .hero-tagline {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--fg);
+      margin-bottom: .75rem;
+      line-height: 1.5;
+    }
+    .hero-text .bio {
+      color: var(--fg-secondary);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      margin-top: 1.25rem;
+    }
+    .hero-links a {
+      font-size: 13px;
+      font-weight: 500;
+      padding: .35rem .8rem;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      color: var(--fg-secondary);
+      transition: all .15s;
+    }
+    .hero-links a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .hero-links a.primary-link {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .hero-links a.primary-link:hover {
+      background: #1d4ed8;
+      border-color: #1d4ed8;
+      color: #fff;
     }
 
-    /* Sidebar */
-    .sidebar {
-      padding-right: 2rem;
-    }
+    /* ── Sections ── */
+    section { padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
+    section:last-child { border-bottom: none; }
 
-    .sidebar-card {
-      background: var(--background-light);
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: var(--shadow);
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-
-    .sidebar-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--primary-color);
-      margin-bottom: 0.5rem;
-    }
-
-    .sidebar-subtitle {
-      color: var(--text-secondary);
+    section h2 {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 500;
       margin-bottom: 1.5rem;
-      line-height: 1.4;
+      letter-spacing: -0.01em;
     }
 
-    .sidebar-links {
-      margin-top: 1.5rem;
+    /* ── Selected Projects ── */
+    .project {
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #f0f0f0;
     }
-
-    .sidebar-links a {
-      display: block;
-      background: transparent;
-      color: var(--secondary-color);
-      padding: 0.6rem 1rem;
-      border-radius: 6px;
-      margin: 0.5rem 0;
-      font-weight: 400;
-      transition: all 0.3s ease;
-      border: 1px solid var(--border-color);
-      text-align: center;
-    }
-
-    .sidebar-links a:hover {
-      background: var(--background-light);
-      color: var(--primary-color);
-      border-color: var(--secondary-color);
-      transform: none;
-      box-shadow: none;
-    }
-
-    /* Video container */
-    .iframe-container {
-      margin-top: 2rem;
-    }
-
-    .iframe-container iframe {
-      width: 100%;
-      height: 220px;
-      margin-bottom: 1rem;
-      border-radius: 10px;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s ease;
-    }
-
-    .iframe-container iframe:hover {
-      transform: scale(1.02);
-    }
-
-    /* Responsive design */
-    @media (max-width: 768px) {
-      .profile-section {
-        flex-direction: column;
-        text-align: center;
-        padding: 1.5rem;
-      }
-
-      .profile-image {
-        width: 150px;
-        height: 150px;
-      }
-
-      .profile-title {
-        font-size: 1.8rem;
-      }
-
-      .sidebar {
-        padding-right: 0;
-        margin-bottom: 2rem;
-      }
-
-      .content-section {
-        padding: 1.5rem;
-      }
-
-      h3 {
-        font-size: 1.5rem;
-      }
-    }
-
-    /* Footer */
-    .footer {
-      margin-top: 3rem;
-      padding: 2rem 0;
-      text-align: center;
-      color: var(--text-secondary);
-      border-top: 1px solid var(--border-color);
-    }
-
-    /* Animations */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .content-section {
-      animation: fadeInUp 0.6s ease-out;
-    }
-
-    /* News items styling */
-    #news + ul li {
-      background: var(--background-light);
-      padding: 1rem;
-      margin-bottom: 0.5rem;
-      border-radius: 8px;
+    .project:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
       border-bottom: none;
-      transition: all 0.3s ease;
+    }
+    .project h3 {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: .5rem;
+    }
+    .project-meta {
+      font-size: 13px;
+      color: var(--fg-muted);
+      margin-bottom: .75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+      align-items: center;
+    }
+    .project-meta .pub-venue {
+      margin-bottom: 0;
+    }
+    .project-desc {
+      font-size: 14.5px;
+      color: var(--fg-secondary);
+      line-height: 1.7;
+      margin-bottom: .75rem;
+    }
+    .project-video {
+      margin-top: .75rem;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .project-video iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border: none;
+      display: block;
+    }
+    .project-links {
+      margin-top: .6rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+    }
+    .project-links a {
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .project-press {
+      margin-top: .6rem;
+      font-size: 13px;
+      color: var(--fg-muted);
+    }
+    .project-press a { color: var(--fg-muted); }
+    .project-press a:hover { color: var(--accent); }
+
+    /* ── News ── */
+    .news-list { list-style: none; }
+    .news-list li {
+      padding: .6rem 0;
+      font-size: 14px;
+      color: var(--fg-secondary);
+      display: flex;
+      gap: .75rem;
+      line-height: 1.6;
+    }
+    .news-list li + li { border-top: 1px solid #f0f0f0; }
+    .news-date {
+      flex-shrink: 0;
+      width: 80px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--fg-muted);
+      font-variant-numeric: tabular-nums;
     }
 
-    #news + ul li:hover {
-      background: #e8f4fd;
-      transform: translateX(5px);
+    /* ── Publications ── */
+    .pub-list { list-style: none; }
+    .pub-list li {
+      padding: 1rem 0;
+      line-height: 1.65;
+    }
+    .pub-list li + li { border-top: 1px solid #f0f0f0; }
+    .pub-venue {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: .15rem .5rem;
+      border-radius: 3px;
+      margin-bottom: .35rem;
+    }
+    .pub-title {
+      font-weight: 500;
+      color: var(--fg);
+    }
+    .pub-title:hover { color: var(--accent); }
+    .pub-authors {
+      font-size: 13.5px;
+      color: var(--fg-muted);
+      margin-top: .2rem;
+    }
+    .pub-authors .me { color: var(--fg); font-weight: 600; }
+    .pub-award {
+      display: inline-block;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #b45309;
+      background: #fef3c7;
+      padding: .1rem .45rem;
+      border-radius: 3px;
+      margin-top: .3rem;
+    }
+    .pub-extra a {
+      font-size: 12.5px;
+      font-weight: 500;
+      margin-right: .5rem;
     }
 
-    #news + ul li:before {
-      content: '📢';
-      color: var(--accent-color);
+    /* ── Teaching ── */
+    .teaching-list { list-style: none; }
+    .teaching-list li {
+      padding: .65rem 0;
+      font-size: 14px;
+      color: var(--fg-secondary);
+      display: flex;
+      align-items: baseline;
+      gap: .75rem;
+    }
+    .teaching-list li + li { border-top: 1px solid #f0f0f0; }
+    .teaching-year {
+      flex-shrink: 0;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--fg-muted);
+      width: 80px;
+    }
+    .teaching-detail {
+      font-size: 12.5px;
+      color: var(--fg-muted);
+      margin-top: .15rem;
+    }
+
+    /* ── Press ── */
+    .press-list { list-style: none; }
+    .press-list li {
+      padding: .7rem 0;
+      font-size: 14px;
+      color: var(--fg-secondary);
+      line-height: 1.65;
+    }
+    .press-list li + li { border-top: 1px solid #f0f0f0; }
+    .press-outlet {
+      font-weight: 500;
+      color: var(--fg-muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .03em;
+    }
+
+    /* ── Videos ── */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    .video-grid iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border: none;
+      border-radius: var(--radius);
+    }
+
+    /* ── Footer ── */
+    footer {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 2rem 1.5rem 3rem;
+      text-align: center;
+      font-size: 13px;
+      color: var(--fg-muted);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .hero { flex-direction: column; align-items: center; text-align: center; gap: 1.5rem; padding: 2rem 0 2rem; }
+      .hero-img { width: 120px; height: 120px; }
+      .hero-links { justify-content: center; }
+      .job-banner { flex-direction: column; text-align: center; }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 12px; }
+      .video-grid { grid-template-columns: 1fr; }
+      .news-list li { flex-direction: column; gap: .15rem; }
+      .news-date { width: auto; }
+      .teaching-list li { flex-direction: column; gap: .15rem; }
+      .teaching-year { width: auto; }
     }
   </style>
 </head>
-
 <body>
 
-  <!-- Page Content -->
-  <div class="container">
-    <div class="row">
+  <!-- Nav -->
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-name">Frank Bu</span>
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#news">News</a>
+        <a href="#publications">Publications</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#press">Press</a>
+      </div>
+    </div>
+  </nav>
 
-      <!-- LEFT COLUMN (Sidebar) -->
-      <div class="col-md-4 sidebar">
+  <main>
 
-        <!-- Contact Info -->
-        <div class="sidebar-card">
-          <div class="sidebar-title">Fanjun (Frank) Bu</div>
-          <p class="sidebar-subtitle">Ph.D. Candidate<br>Computer Science Department<br>Cornell University, Cornell Tech</p>
+    <!-- Job Market Banner -->
+    <div class="job-banner">
+      <span><strong>I'm on the job market</strong> for research scientist positions.</span>
+      <a href="mailto:fb266@cornell.edu">fb266@cornell.edu</a>
+    </div>
 
-          <!-- Links -->
-          <div class="sidebar-links">
-            <a href="https://scholar.google.com/citations?user=Co1HwVcAAAAJ&hl=en">Google Scholar</a>
-            <a href="https://github.com/FrankBu0616">GitHub</a>
-            <a href="./CV.pdf">Download CV</a>
-            <a href="https://github.com/IRL-CT/Mobile_HRI_Lab_Hub">Course Materials</a>
-          </div>
+    <!-- Hero -->
+    <div class="hero">
+      <img class="hero-img" src="self.jpg" alt="Fanjun (Frank) Bu">
+      <div class="hero-text">
+        <h1>Fanjun (Frank) Bu</h1>
+        <p class="subtitle">Ph.D. Candidate &middot; Computer Science &middot; Cornell Tech</p>
+        <p class="hero-tagline">I build and deploy robots that interact with people in real-world public spaces.</p>
+        <p class="bio">
+          I am a Ph.D. Candidate at Cornell Tech, supervised by <a href="https://tech.cornell.edu/people/wendy-ju/">Wendy Ju</a>.
+          My research focuses on deploying robots in real-world social environments, where success depends on understanding and responding to human behavior.
+        </p>
+        <p class="bio" style="margin-top: .5rem;">
+          Leveraging foundation models, I design and deploy robotic systems that integrate social and situational factors to improve adaptability and responsiveness
+          in human-centered settings. I have extensive experience across robotics, simulation, VR/XR, and generative models, with an emphasis on translating research
+          insights into deployed interactive systems.
+        </p>
+        <div class="hero-links">
+          <a class="primary-link" href="mailto:fb266@cornell.edu">Email Me</a>
+          <a href="./CV.pdf">Download CV</a>
+          <a href="https://scholar.google.com/citations?user=Co1HwVcAAAAJ&hl=en">Google Scholar</a>
+          <a href="https://github.com/FrankBu0616">GitHub</a>
+          <a href="https://github.com/IRL-CT/Mobile_HRI_Lab_Hub">Course Materials</a>
         </div>
+      </div>
+    </div>
 
-        <!-- Videos -->
-        <div class="sidebar-card">
-          <h4 style="margin-bottom: 1rem; color: var(--primary-color);">Research Videos</h4>
-          <div class="iframe-container">
-            <iframe src="https://www.youtube.com/embed/R8sI5auGlc8?si=rBfMLg-HU64iOfKq" title="YouTube video player" 
-              frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/pS5ptE2USSo" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/Y-R6iiF60jY" allowfullscreen></iframe>
-            <iframe src="https://www.youtube.com/embed/0C4N8oTKqAg?si=LUJXzc9RgkownVVq" title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>          
-          </div>
+    <!-- Selected Projects -->
+    <section id="projects">
+      <h2>Selected Projects</h2>
+
+      <!-- VLM for Social Intelligence -->
+      <div class="project">
+        <h3>Vision-Language Models for Social Robot Intelligence</h3>
+        <div class="project-meta">
+          <span class="pub-venue">arXiv</span>
+          <span class="pub-venue">ICSR '24</span>
         </div>
-
-      </div> <!-- /.col-md-4 (LEFT COLUMN) -->
-
-      <!-- RIGHT COLUMN (Main Content) -->
-      <div class="col-md-8">
-
-        <!-- Profile Section -->
-        <div class="profile-section">
-          <img class="profile-image" src="self.jpg" alt="Fanjun (Frank) Bu">
-          <div class="profile-text">
-            <div class="bio-text">
-              I am a Ph.D. Candidate at Cornell Tech, supervised by <a href="https://tech.cornell.edu/people/wendy-ju/">Wendy Ju</a>. 
-              My research focuses on deploying robots in real-world social environments, where success depends on understanding and responding to human behavior. 
-              <br><br>
-              Leveraging foundation models, I design and deploy robotic systems that integrate social and situational factors to improve adaptability and responsiveness 
-              in human-centered settings. I have extensive experience across robotics, simulation, VR/XR, and generative models, with an emphasis on translating research 
-              insights into deployed interactive systems.
-            </div>
-          </div>
+        <p class="project-desc">
+          Investigating how vision-language models can serve as proxies for social intelligence in human-robot interaction, including building datasets and benchmarks for evaluating social signaling in urban public HRI scenarios.
+        </p>
+        <div class="project-video">
+          <iframe src="https://www.youtube.com/embed/Y-R6iiF60jY" title="VLM for HRI" allowfullscreen></iframe>
         </div>
-
-        <!-- News -->
-        <div class="content-section">
-          <h3 id="news">Latest News</h3>
-          <ul>
-            <li> [June 2025] Returned to Toyota Research Institute for a second internship. </li>
-            <li> [June 2025] Some new publications at CHI 2025!
-            <li> [Nov 2025] Gave a <a href="https://europe.naverlabs.com/updates/2nd-hri-international-symposium/">talk</a> at
-              the 2nd HRI International Symposium held by Naver Labs Europe. </li>
-            <li> [May 2024] Start my summer internship at Toyota Research Institute. </li>
-            <li> [May 2023] Presented our work Portobello at CHI and received an Honorable Mention Award!</li>
-            <li> [May 2023] Gave a talk at Nokia Bell Labs Responsible AI Seminar. </li>
-          </ul>
+        <div class="project-links">
+          <a href="https://arxiv.org/abs/2512.07177">arXiv Preprint</a>
+          <a href="https://link.springer.com/chapter/10.1007/978-981-96-3525-2_38">ICSR '24 (ReStory)</a>
+          <a href="https://link.springer.com/chapter/10.1007/978-981-96-3525-2_40">ICSR '24 (SSUP-HRI)</a>
         </div>
+      </div>
 
-        <!-- Publications -->
-        <div class="content-section">
-          <h3 id="publications">Publications</h3>
-          <ul>
-            <li>
-            <span class="conference-abbrev">arXiv</span><a href="https://arxiv.org/abs/2512.07177">Using Vision-Language Models as Proxies for Social Intelligence in Human-Robot Interaction.</a>
-            <br><strong class="author-name">Fanjun Bu</strong>, Melina Tsai, Audrey Tjokro, Tapomayukh Bhattacharjee, Jorge Ortiz, Wendy Ju.
-          </li>
-          <li>
-            <span class="conference-abbrev">THRI'25</span><a href="https://dl.acm.org/doi/full/10.1145/3731252">Making Sense of Robots in Public Spaces: A Study of Trash Barrel Robots.</a>
-            <br><strong class="author-name">Fanjun Bu</strong>, Kerstin Fischer, and Wendy Ju.
-          </li>
-          <li>
-            <span class="conference-abbrev">CHI EA'25</span><a href="https://dl.acm.org/doi/full/10.1145/3706599.3720255">Boosting Visual Fidelity in Driving Simulations through Diffusion Models.</a>
-            <br><strong class="author-name">Fanjun Bu</strong> and Hiroshi Yasuda.
-          </li>
-          <li>
-            <span class="conference-abbrev">CHI'25</span><a href="https://dl.acm.org/doi/full/10.1145/3706598.3713237">The People Behind the Robots: How Wizards Wrangle Robots in Public Deployments.</a>
-            <br>Hannah R. M. Pelikan, <strong class="author-name">Fanjun Bu</strong>, and Wendy Ju.
-          </li>
-          <li>
-            <span class="conference-abbrev">CHI'25</span><a href="https://dl.acm.org/doi/full/10.1145/3706598.3714009">The Robotability Score: Enabling Harmonious Robot Navigation on Urban Streets.</a>
-            <br>Matt Franchi*, Maria Teresa Parreira*, <strong class="author-name">Fanjun Bu*</strong>, and Wendy Ju.
-          </li>
-          <li>
-            <span class="conference-abbrev">ICSR'24</span><a href="https://link.springer.com/chapter/10.1007/978-981-96-3525-2_38">ReStory: VLM-Augmentation of Social Human-Robot Interaction Datasets.</a>
-            <br><strong class="author-name">Fanjun Bu</strong>, and Wendy Ju.
-          </li>
-          <li>
-            <span class="conference-abbrev">ICSR'24</span><a href="https://link.springer.com/chapter/10.1007/978-981-96-3525-2_40">SSUP-HRI: Social signaling in urban public human-robot interaction dataset.</a>
-            <br><strong class="author-name">Fanjun Bu</strong>, and Wendy Ju.
-          </li>
-          <li>
-            <span class="conference-abbrev">DIS'24</span><a href="https://dl.acm.org/doi/10.1145/3643834.3660680">Behind the Scenes of CXR: Designing a Geo-Synchronized Communal eXtended Reality System.</a>
-            <br>Sharon Yavo-Ayalon, Yuzhen Zhang, Ruixiang Han, Swapna Joshi, <strong class="author-name">Fanjun Bu</strong>, Cooper Murr, Lunshi Zhou, and Wendy Ju.
-            <br><strong>Honorable Mention Award</strong>
-          </li>
-          <li>
-            <span class="conference-abbrev">CHI EA'24</span><a href="https://dl.acm.org/doi/10.1145/3613905.3651044">Field Notes on Deploying Research Robots in Public Spaces</a>
-            <br><strong class="author-name">Fanjun Bu</strong>, Alexandra Bremers, Mark Colley, Wendy Ju.
-          </li>
-          <li>
-            <span class="conference-abbrev">CHI'24</span><a href="https://dl.acm.org/doi/full/10.1145/3613904.3642341">Portobello: Extending Driving Simulation from the Lab to the Road.</a>
-            <br><strong class="author-name">Fanjun Bu</strong>, Stacey Li, David Goedicke, Mark Colley, Gyanendra Sharma, Wendy Ju.
-            <br><strong>Honorable Mention Award</strong>
-          </li>
-          <li>
-            <span class="conference-abbrev">CHI'24</span><a href="https://dl.acm.org/doi/10.1145/3613904.3642610">Trash in Motion: Emergent interactions with robotic trashcans in a public square.</a>
-            <br>Barry Brown, <strong class="author-name">Fanjun Bu</strong>, Ilan Mandel, Wendy Ju.
-          </li>
-          <li>
-            <span class="conference-abbrev">HRI'23</span><a href="https://dl.acm.org/doi/abs/10.1145/3568294.3580206">Trash Barrel Robots in the City.</a>
-            <br><strong class="author-name">Fanjun Bu*</strong>, Ilan Mandel*, Wen-Ying Lee, Wendy Ju.
-          </li>
-          <li>
-            <span class="conference-abbrev">CHI'22</span><a href="https://dl.acm.org/doi/abs/10.1145/3491102.3517704">XR-OOM: MiXed Reality driving simulation with real cars for research and design.</a>
-            <br>David Goedicke, Alexandra WD Bremers, Sam Lee, <strong class="author-name">Fanjun Bu</strong>, Hiroshi Yasuda, Wendy Ju.
-          </li>
-          <li>
-            <span class="conference-abbrev">CoRL'22</span><a href="https://openreview.net/forum?id=7ZcePvChS7u">Human-robot commensality: Bite timing prediction for robot-assisted feeding in groups.</a>
-            <br>Jan Ondras, Abrar Anwar, Tong Wu, <strong class="author-name">Fanjun Bu</strong>, Malte Jung, Jorge Jose Ortiz, Tapomayukh Bhattacharjee.
-          </li>
-          <li>
-            <span class="conference-abbrev">IEEE Access'21</span><a href="https://ieeexplore.ieee.org/document/9547333">Object permanence through audio-visual representations.</a>
-            <br><strong class="author-name">Fanjun Bu</strong>, Chien-Ming Huang.
-            <br><a href="https://archive.data.jhu.edu/dataset.xhtml?persistentId=doi:10.7281/T1/EP0W7Y">[Dataset]</a> <a href="https://youtu.be/Rj-ZZf3r4g8">[Video]</a>
-          </li>
-          <li>
-            <span class="conference-abbrev">RAL'20</span><a href="https://ieeexplore.ieee.org/abstract/document/8989777">Benchmark for bimanual robotic manipulation of semi-deformable objects.</a>
-            <br>Konstantinos Chatzilygeroudis, Bernardo Fichera, Ilaria Lauzana, <strong class="author-name">Fanjun Bu</strong>, Kunpeng Yao, Farshad Khadivar, Aude Billard.
-          </li>
+      <!-- Trash Barrel Robots -->
+      <div class="project">
+        <h3>Trash Barrel Robots in Public Spaces</h3>
+        <div class="project-meta">
+          <span class="pub-venue">THRI '25</span>
+          <span class="pub-venue">CHI '24</span>
+          <span class="pub-venue">HRI '23</span>
+          <span class="pub-award">Featured on CNN, NPR, IEEE Spectrum</span>
         </div>
-
-        <!-- Teaching Assistantships -->
-        <div class="content-section">
-          <h3 id="teaching">Teaching Assistantships</h3>
-          <ul>
-            <li> [Spring 2024] CS5678 <a href="https://www.cs.cornell.edu/courses/cs5678/"> 3D User Interface </a> </li>
-            <li> [Spring 2023] INFO5755/INFO6755/CS5755/CS675 <a
-                href="https://github.com/FAR-Lab/Mobile_HRI_Lab_Hub">Mobile Human Robot Interaction Design</a> 
-              <br><strong>TA Award</strong></li>
-            <li> [Fall 2021] CS4750/CS5750/ECE4770/MAE4760. <a href="https://www.cs.cornell.edu/courses/cs5750/2021fa/">
-                Foundations of Robotics</a> 
-              <br><strong>TA Award</strong></li>
-          </ul>
+        <p class="project-desc">
+          Deployed autonomous robotic trash barrels in a New York City public plaza to study how people interact with robots in uncontrolled social settings. The project produced multiple publications studying emergent interactions, public sense-making, and field deployment methodology, and received widespread media coverage.
+        </p>
+        <div class="project-video">
+          <iframe src="https://www.youtube.com/embed/R8sI5auGlc8?si=rBfMLg-HU64iOfKq" title="Trash Barrel Robots" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-
-        <!-- Press -->
-        <div class="content-section">
-          <h3 id="press">Press Coverage</h3>
-          <ul>
-          <li> Staff, <a
-              href="https://www.cnn.com/videos/business/2023/04/11/robotic-trash-cans-nyc-cornell-contd-orig-fj.cnn-business">"These
-              robotic trash cans were filmed to test human-robotic interactions.</a> Watch what happened," CNN Business,
-            April 12, 2023.</li>
-          <li> Ayesha Rascoe, <a
-              href="https://www.npr.org/2023/04/16/1170293941/researchers-released-robot-trash-cans-in-nyc-to-see-how-people-would-react#:~:text=Researchers%20released%20robot%20trash%20cans,how%20people%20would%20react%20%3A%20NPR&text=Books%20Podcast-,Researchers%20released%20robot%20trash%20cans%20in%20NYC%20to%20see%20how,interacted%20with%20the%20robo%2Dbins.">"Researchers
-              released robot trash cans in NYC to see how people would react,"</a> National Public Radio (NPR), April
-            16, 2023. </li>
-          <li> Patricia Waldron, <a
-              href="https://news.cornell.edu/stories/2023/04/almost-everyone-likes-helpful-trash-robot">"(Almost)
-              everyone likes a helpful trash robot,"</a> Cornell Chronicle, April 19, 2023.</li>
-          <li> Mike Snider, <a
-              href="https://www.usatoday.com/story/news/nation/2023/04/15/video-robot-trash-cans-new-york-city/11666593002/">"Robots
-              in the Big Apple: Robo-trash cans patrolling New York plaza make friends, creep out some,"</a> USA TODAY,
-            April 15, 2023. </li>
-          <li> Evan Ackerman, <a href="https://spectrum.ieee.org/nyc-trash-robots">"Humans (Mostly) Love Trash Robots >
-              Simple robots wander NYC asking for trash and recycling, and it’s adorable,"</a> IEEE Spectrum, Mar 10,
-            2023.</li>
+        <div class="project-links">
+          <a href="https://dl.acm.org/doi/full/10.1145/3731252">THRI '25 Paper</a>
+          <a href="https://dl.acm.org/doi/10.1145/3613904.3642610">CHI '24 Paper</a>
+          <a href="https://dl.acm.org/doi/abs/10.1145/3568294.3580206">HRI '23 Paper</a>
+          <a href="https://dl.acm.org/doi/10.1145/3613905.3651044">CHI EA '24 Field Notes</a>
         </div>
+        <div class="project-press">
+          Press: <a href="https://www.cnn.com/videos/business/2023/04/11/robotic-trash-cans-nyc-cornell-contd-orig-fj.cnn-business">CNN</a> &middot;
+          <a href="https://www.npr.org/2023/04/16/1170293941/researchers-released-robot-trash-cans-in-nyc-to-see-how-people-would-react#:~:text=Researchers%20released%20robot%20trash%20cans,how%20people%20would%20react%20%3A%20NPR&text=Books%20Podcast-,Researchers%20released%20robot%20trash%20cans%20in%20NYC%20to%20see%20how,interacted%20with%20the%20robo%2Dbins.">NPR</a> &middot;
+          <a href="https://news.cornell.edu/stories/2023/04/almost-everyone-likes-helpful-trash-robot">Cornell Chronicle</a> &middot;
+          <a href="https://www.usatoday.com/story/news/nation/2023/04/15/video-robot-trash-cans-new-york-city/11666593002/">USA TODAY</a> &middot;
+          <a href="https://spectrum.ieee.org/nyc-trash-robots">IEEE Spectrum</a>
+        </div>
+      </div>
 
-      </div> <!-- /.col-md-8 (RIGHT COLUMN) -->
+      <!-- Portobello -->
+      <div class="project">
+        <h3>Portobello: Driving Simulation on Real Roads</h3>
+        <div class="project-meta">
+          <span class="pub-venue">CHI '24</span>
+          <span class="pub-venue">CHI '22</span>
+          <span class="pub-award">Honorable Mention Award</span>
+        </div>
+        <p class="project-desc">
+          Extended driving simulation from the lab to the road, enabling researchers to study human responses to simulated driving scenarios using real vehicles in real traffic. The Portobello system and the broader XR-OOM platform bridge controlled experimentation with ecological validity.
+        </p>
+        <div class="project-video">
+          <iframe src="https://www.youtube.com/embed/pS5ptE2USSo" title="Portobello" allowfullscreen></iframe>
+        </div>
+        <div class="project-links">
+          <a href="https://dl.acm.org/doi/full/10.1145/3613904.3642341">CHI '24 Paper</a>
+          <a href="https://dl.acm.org/doi/abs/10.1145/3491102.3517704">CHI '22 Paper (XR-OOM)</a>
+          <a href="https://dl.acm.org/doi/full/10.1145/3706599.3720255">CHI EA '25 (Diffusion Models)</a>
+        </div>
+      </div>
+    </section>
 
-    </div> <!-- /.row -->
-  </div> <!-- /.container -->
+    <!-- News -->
+    <section id="news">
+      <h2>News</h2>
+      <ul class="news-list">
+        <li><span class="news-date">Nov 2025</span><span>Gave a <a href="https://europe.naverlabs.com/updates/2nd-hri-international-symposium/">talk</a> at the 2nd HRI International Symposium held by Naver Labs Europe.</span></li>
+        <li><span class="news-date">June 2025</span><span>Returned to Toyota Research Institute for a second internship.</span></li>
+        <li><span class="news-date">June 2025</span><span>Some new publications at CHI 2025!</span></li>
+        <li><span class="news-date">May 2024</span><span>Start my summer internship at Toyota Research Institute.</span></li>
+        <li><span class="news-date">May 2023</span><span>Presented our work Portobello at CHI and received an Honorable Mention Award!</span></li>
+        <li><span class="news-date">May 2023</span><span>Gave a talk at Nokia Bell Labs Responsible AI Seminar.</span></li>
+      </ul>
+    </section>
 
-  <script>
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
+    <!-- Publications -->
+    <section id="publications">
+      <h2>Publications</h2>
+      <ul class="pub-list">
+        <li>
+          <span class="pub-venue">arXiv</span><br>
+          <a class="pub-title" href="https://arxiv.org/abs/2512.07177">Using Vision-Language Models as Proxies for Social Intelligence in Human-Robot Interaction.</a>
+          <div class="pub-authors"><span class="me">Fanjun Bu</span>, Melina Tsai, Audrey Tjokro, Tapomayukh Bhattacharjee, Jorge Ortiz, Wendy Ju.</div>
+        </li>
+        <li>
+          <span class="pub-venue">THRI '25</span><br>
+          <a class="pub-title" href="https://dl.acm.org/doi/full/10.1145/3731252">Making Sense of Robots in Public Spaces: A Study of Trash Barrel Robots.</a>
+          <div class="pub-authors"><span class="me">Fanjun Bu</span>, Kerstin Fischer, and Wendy Ju.</div>
+        </li>
+        <li>
+          <span class="pub-venue">CHI EA '25</span><br>
+          <a class="pub-title" href="https://dl.acm.org/doi/full/10.1145/3706599.3720255">Boosting Visual Fidelity in Driving Simulations through Diffusion Models.</a>
+          <div class="pub-authors"><span class="me">Fanjun Bu</span> and Hiroshi Yasuda.</div>
+        </li>
+        <li>
+          <span class="pub-venue">CHI '25</span><br>
+          <a class="pub-title" href="https://dl.acm.org/doi/full/10.1145/3706598.3713237">The People Behind the Robots: How Wizards Wrangle Robots in Public Deployments.</a>
+          <div class="pub-authors">Hannah R. M. Pelikan, <span class="me">Fanjun Bu</span>, and Wendy Ju.</div>
+        </li>
+        <li>
+          <span class="pub-venue">CHI '25</span><br>
+          <a class="pub-title" href="https://dl.acm.org/doi/full/10.1145/3706598.3714009">The Robotability Score: Enabling Harmonious Robot Navigation on Urban Streets.</a>
+          <div class="pub-authors">Matt Franchi*, Maria Teresa Parreira*, <span class="me">Fanjun Bu*</span>, and Wendy Ju.</div>
+        </li>
+        <li>
+          <span class="pub-venue">ICSR '24</span><br>
+          <a class="pub-title" href="https://link.springer.com/chapter/10.1007/978-981-96-3525-2_38">ReStory: VLM-Augmentation of Social Human-Robot Interaction Datasets.</a>
+          <div class="pub-authors"><span class="me">Fanjun Bu</span>, and Wendy Ju.</div>
+        </li>
+        <li>
+          <span class="pub-venue">ICSR '24</span><br>
+          <a class="pub-title" href="https://link.springer.com/chapter/10.1007/978-981-96-3525-2_40">SSUP-HRI: Social signaling in urban public human-robot interaction dataset.</a>
+          <div class="pub-authors"><span class="me">Fanjun Bu</span>, and Wendy Ju.</div>
+        </li>
+        <li>
+          <span class="pub-venue">DIS '24</span><br>
+          <a class="pub-title" href="https://dl.acm.org/doi/10.1145/3643834.3660680">Behind the Scenes of CXR: Designing a Geo-Synchronized Communal eXtended Reality System.</a>
+          <div class="pub-authors">Sharon Yavo-Ayalon, Yuzhen Zhang, Ruixiang Han, Swapna Joshi, <span class="me">Fanjun Bu</span>, Cooper Murr, Lunshi Zhou, and Wendy Ju.</div>
+          <div><span class="pub-award">Honorable Mention Award</span></div>
+        </li>
+        <li>
+          <span class="pub-venue">CHI EA '24</span><br>
+          <a class="pub-title" href="https://dl.acm.org/doi/10.1145/3613905.3651044">Field Notes on Deploying Research Robots in Public Spaces</a>
+          <div class="pub-authors"><span class="me">Fanjun Bu</span>, Alexandra Bremers, Mark Colley, Wendy Ju.</div>
+        </li>
+        <li>
+          <span class="pub-venue">CHI '24</span><br>
+          <a class="pub-title" href="https://dl.acm.org/doi/full/10.1145/3613904.3642341">Portobello: Extending Driving Simulation from the Lab to the Road.</a>
+          <div class="pub-authors"><span class="me">Fanjun Bu</span>, Stacey Li, David Goedicke, Mark Colley, Gyanendra Sharma, Wendy Ju.</div>
+          <div><span class="pub-award">Honorable Mention Award</span></div>
+        </li>
+        <li>
+          <span class="pub-venue">CHI '24</span><br>
+          <a class="pub-title" href="https://dl.acm.org/doi/10.1145/3613904.3642610">Trash in Motion: Emergent interactions with robotic trashcans in a public square.</a>
+          <div class="pub-authors">Barry Brown, <span class="me">Fanjun Bu</span>, Ilan Mandel, Wendy Ju.</div>
+        </li>
+        <li>
+          <span class="pub-venue">HRI '23</span><br>
+          <a class="pub-title" href="https://dl.acm.org/doi/abs/10.1145/3568294.3580206">Trash Barrel Robots in the City.</a>
+          <div class="pub-authors"><span class="me">Fanjun Bu*</span>, Ilan Mandel*, Wen-Ying Lee, Wendy Ju.</div>
+        </li>
+        <li>
+          <span class="pub-venue">CHI '22</span><br>
+          <a class="pub-title" href="https://dl.acm.org/doi/abs/10.1145/3491102.3517704">XR-OOM: MiXed Reality driving simulation with real cars for research and design.</a>
+          <div class="pub-authors">David Goedicke, Alexandra WD Bremers, Sam Lee, <span class="me">Fanjun Bu</span>, Hiroshi Yasuda, Wendy Ju.</div>
+        </li>
+        <li>
+          <span class="pub-venue">CoRL '22</span><br>
+          <a class="pub-title" href="https://openreview.net/forum?id=7ZcePvChS7u">Human-robot commensality: Bite timing prediction for robot-assisted feeding in groups.</a>
+          <div class="pub-authors">Jan Ondras, Abrar Anwar, Tong Wu, <span class="me">Fanjun Bu</span>, Malte Jung, Jorge Jose Ortiz, Tapomayukh Bhattacharjee.</div>
+        </li>
+        <li>
+          <span class="pub-venue">IEEE Access '21</span><br>
+          <a class="pub-title" href="https://ieeexplore.ieee.org/document/9547333">Object permanence through audio-visual representations.</a>
+          <div class="pub-authors"><span class="me">Fanjun Bu</span>, Chien-Ming Huang.</div>
+          <div class="pub-extra"><a href="https://archive.data.jhu.edu/dataset.xhtml?persistentId=doi:10.7281/T1/EP0W7Y">[Dataset]</a> <a href="https://youtu.be/Rj-ZZf3r4g8">[Video]</a></div>
+        </li>
+        <li>
+          <span class="pub-venue">RAL '20</span><br>
+          <a class="pub-title" href="https://ieeexplore.ieee.org/abstract/document/8989777">Benchmark for bimanual robotic manipulation of semi-deformable objects.</a>
+          <div class="pub-authors">Konstantinos Chatzilygeroudis, Bernardo Fichera, Ilaria Lauzana, <span class="me">Fanjun Bu</span>, Kunpeng Yao, Farshad Khadivar, Aude Billard.</div>
+        </li>
+      </ul>
+    </section>
 
-    // Add loading animation
-    window.addEventListener('load', function() {
-      document.body.style.opacity = '0';
-      document.body.style.transition = 'opacity 0.5s ease-in-out';
-      setTimeout(() => {
-        document.body.style.opacity = '1';
-      }, 100);
-    });
-  </script>
+    <!-- Teaching -->
+    <section id="teaching">
+      <h2>Teaching Assistantships</h2>
+      <ul class="teaching-list">
+        <li>
+          <span class="teaching-year">Spring 24</span>
+          <span>CS5678 <a href="https://www.cs.cornell.edu/courses/cs5678/">3D User Interface</a>
+            <div class="teaching-detail">VR/AR interaction design and spatial computing</div>
+          </span>
+        </li>
+        <li>
+          <span class="teaching-year">Spring 23</span>
+          <span>INFO5755/INFO6755/CS5755/CS675 <a href="https://github.com/FAR-Lab/Mobile_HRI_Lab_Hub">Mobile Human Robot Interaction Design</a> <span class="pub-award">TA Award</span>
+            <div class="teaching-detail">Designing and prototyping mobile robots for human interaction</div>
+          </span>
+        </li>
+        <li>
+          <span class="teaching-year">Fall 21</span>
+          <span>CS4750/CS5750/ECE4770/MAE4760 <a href="https://www.cs.cornell.edu/courses/cs5750/2021fa/">Foundations of Robotics</a> <span class="pub-award">TA Award</span>
+            <div class="teaching-detail">Motion planning, kinematics, dynamics, and control</div>
+          </span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Press -->
+    <section id="press">
+      <h2>Press Coverage</h2>
+      <ul class="press-list">
+        <li>
+          Staff, <a href="https://www.cnn.com/videos/business/2023/04/11/robotic-trash-cans-nyc-cornell-contd-orig-fj.cnn-business">"These
+          robotic trash cans were filmed to test human-robotic interactions.</a> Watch what happened," CNN Business, April 12, 2023.
+        </li>
+        <li>
+          Ayesha Rascoe, <a href="https://www.npr.org/2023/04/16/1170293941/researchers-released-robot-trash-cans-in-nyc-to-see-how-people-would-react#:~:text=Researchers%20released%20robot%20trash%20cans,how%20people%20would%20react%20%3A%20NPR&text=Books%20Podcast-,Researchers%20released%20robot%20trash%20cans%20in%20NYC%20to%20see%20how,interacted%20with%20the%20robo%2Dbins.">"Researchers
+          released robot trash cans in NYC to see how people would react,"</a> National Public Radio (NPR), April 16, 2023.
+        </li>
+        <li>
+          Patricia Waldron, <a href="https://news.cornell.edu/stories/2023/04/almost-everyone-likes-helpful-trash-robot">"(Almost)
+          everyone likes a helpful trash robot,"</a> Cornell Chronicle, April 19, 2023.
+        </li>
+        <li>
+          Mike Snider, <a href="https://www.usatoday.com/story/news/nation/2023/04/15/video-robot-trash-cans-new-york-city/11666593002/">"Robots
+          in the Big Apple: Robo-trash cans patrolling New York plaza make friends, creep out some,"</a> USA TODAY, April 15, 2023.
+        </li>
+        <li>
+          Evan Ackerman, <a href="https://spectrum.ieee.org/nyc-trash-robots">"Humans (Mostly) Love Trash Robots &gt;
+          Simple robots wander NYC asking for trash and recycling, and it's adorable,"</a> IEEE Spectrum, Mar 10, 2023.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Remaining Video -->
+    <section id="videos">
+      <h2>More Videos</h2>
+      <div class="video-grid">
+        <iframe src="https://www.youtube.com/embed/0C4N8oTKqAg?si=LUJXzc9RgkownVVq" title="Research video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    Fanjun (Frank) Bu &middot; Cornell Tech &middot; fb266@cornell.edu
+  </footer>
 
 </body>
-
 </html>
