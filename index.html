@@ -5,6 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Fanjun (Frank) Bu — HRI Researcher</title>
   <meta name="description" content="Ph.D. candidate Frank Bu investigates how context shapes human-robot interaction by deploying real-world simulations and field studies. Research at Cornell Tech supervised by Prof. Wendy Ju.">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Fanjun (Frank) Bu — HRI Researcher">
+  <meta property="og:description" content="Ph.D. candidate at Cornell Tech researching human-robot interaction. I build and deploy robots that interact with people in real-world public spaces.">
+  <meta property="og:image" content="https://frankbu0616.github.io/self.jpg">
+  <meta property="og:url" content="https://frankbu0616.github.io/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Fanjun (Frank) Bu — HRI Researcher">
+  <meta name="twitter:description" content="Ph.D. candidate at Cornell Tech researching human-robot interaction. I build and deploy robots that interact with people in real-world public spaces.">
+  <meta name="twitter:image" content="https://frankbu0616.github.io/self.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%232563eb'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='700' font-size='30' fill='white'>FB</text></svg>">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet">
@@ -24,6 +39,88 @@
       --max-w: 820px;
       --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-serif: 'IBM Plex Serif', Georgia, serif;
+    }
+
+    /* ── Dark mode ── */
+    [data-theme="dark"] {
+      --fg: #e5e5e5;
+      --fg-secondary: #a3a3a3;
+      --fg-muted: #737373;
+      --bg: #141414;
+      --bg-alt: #1c1c1c;
+      --accent: #60a5fa;
+      --accent-light: #1e293b;
+      --border: #2a2a2a;
+    }
+    [data-theme="dark"] nav {
+      background: rgba(20,20,20,.88);
+    }
+    [data-theme="dark"] .job-banner {
+      border-color: #1e3a5f;
+    }
+    [data-theme="dark"] .hero-img {
+      filter: grayscale(10%) brightness(.95);
+    }
+    [data-theme="dark"] .pub-venue {
+      color: var(--accent);
+      background: var(--accent-light);
+    }
+    [data-theme="dark"] .pub-award {
+      color: #fbbf24;
+      background: #422006;
+    }
+    [data-theme="dark"] .pub-title { color: var(--fg); }
+    [data-theme="dark"] .pub-authors .me { color: var(--fg); }
+    [data-theme="dark"] .project h3 { color: var(--fg); }
+    [data-theme="dark"] .hero-links a.primary-link {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #141414;
+    }
+    [data-theme="dark"] .hero-links a.primary-link:hover {
+      background: #93bbfd;
+      border-color: #93bbfd;
+      color: #141414;
+    }
+    [data-theme="dark"] .news-list li + li,
+    [data-theme="dark"] .pub-list li + li,
+    [data-theme="dark"] .teaching-list li + li,
+    [data-theme="dark"] .press-list li + li,
+    [data-theme="dark"] .project { border-color: #252525; }
+
+    /* ── Theme toggle ── */
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: .3rem .55rem;
+      cursor: pointer;
+      font-size: 14px;
+      line-height: 1;
+      color: var(--fg-muted);
+      transition: all .15s;
+      display: flex;
+      align-items: center;
+    }
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .theme-toggle .icon-sun,
+    .theme-toggle .icon-moon { display: none; }
+    [data-theme="dark"] .theme-toggle .icon-sun { display: inline; }
+    :root:not([data-theme="dark"]) .theme-toggle .icon-moon,
+    html:not([data-theme]) .theme-toggle .icon-moon { display: inline; }
+
+    /* ── Scroll animations ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     html { scroll-behavior: smooth; }
@@ -65,7 +162,7 @@
       color: var(--fg);
       letter-spacing: -0.01em;
     }
-    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
     .nav-links a {
       font-size: 13px;
       font-weight: 500;
@@ -409,6 +506,10 @@
         <a href="#publications">Publications</a>
         <a href="#teaching">Teaching</a>
         <a href="#press">Press</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <span class="icon-moon">&#9789;</span>
+          <span class="icon-sun">&#9788;</span>
+        </button>
       </div>
     </div>
   </nav>
@@ -416,13 +517,13 @@
   <main>
 
     <!-- Job Market Banner -->
-    <div class="job-banner">
+    <div class="job-banner fade-in">
       <span><strong>I'm on the job market</strong> for research scientist positions.</span>
       <a href="mailto:fb266@cornell.edu">fb266@cornell.edu</a>
     </div>
 
     <!-- Hero -->
-    <div class="hero">
+    <div class="hero fade-in">
       <img class="hero-img" src="self.jpg" alt="Fanjun (Frank) Bu">
       <div class="hero-text">
         <h1>Fanjun (Frank) Bu</h1>
@@ -448,7 +549,7 @@
     </div>
 
     <!-- Selected Projects -->
-    <section id="projects">
+    <section id="projects" class="fade-in">
       <h2>Selected Projects</h2>
 
       <!-- VLM for Social Intelligence -->
@@ -462,7 +563,7 @@
           Investigating how vision-language models can serve as proxies for social intelligence in human-robot interaction, including building datasets and benchmarks for evaluating social signaling in urban public HRI scenarios.
         </p>
         <div class="project-video">
-          <iframe src="https://www.youtube.com/embed/Y-R6iiF60jY" title="VLM for HRI" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/R8sI5auGlc8?si=rBfMLg-HU64iOfKq" title="Bootstrapping Autonomy in Social Human-Robot Interactions using Vision Language Models" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <div class="project-links">
           <a href="https://arxiv.org/abs/2512.07177">arXiv Preprint</a>
@@ -484,7 +585,7 @@
           Deployed autonomous robotic trash barrels in a New York City public plaza to study how people interact with robots in uncontrolled social settings. The project produced multiple publications studying emergent interactions, public sense-making, and field deployment methodology, and received widespread media coverage.
         </p>
         <div class="project-video">
-          <iframe src="https://www.youtube.com/embed/R8sI5auGlc8?si=rBfMLg-HU64iOfKq" title="Trash Barrel Robots" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/pS5ptE2USSo" title="Trash Barrel Robots in the City" allowfullscreen></iframe>
         </div>
         <div class="project-links">
           <a href="https://dl.acm.org/doi/full/10.1145/3731252">THRI '25 Paper</a>
@@ -513,7 +614,7 @@
           Extended driving simulation from the lab to the road, enabling researchers to study human responses to simulated driving scenarios using real vehicles in real traffic. The Portobello system and the broader XR-OOM platform bridge controlled experimentation with ecological validity.
         </p>
         <div class="project-video">
-          <iframe src="https://www.youtube.com/embed/pS5ptE2USSo" title="Portobello" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/Y-R6iiF60jY" title="Portobello: Extending driving simulation from the lab to the road" allowfullscreen></iframe>
         </div>
         <div class="project-links">
           <a href="https://dl.acm.org/doi/full/10.1145/3613904.3642341">CHI '24 Paper</a>
@@ -524,7 +625,7 @@
     </section>
 
     <!-- News -->
-    <section id="news">
+    <section id="news" class="fade-in">
       <h2>News</h2>
       <ul class="news-list">
         <li><span class="news-date">Nov 2025</span><span>Gave a <a href="https://europe.naverlabs.com/updates/2nd-hri-international-symposium/">talk</a> at the 2nd HRI International Symposium held by Naver Labs Europe.</span></li>
@@ -537,7 +638,7 @@
     </section>
 
     <!-- Publications -->
-    <section id="publications">
+    <section id="publications" class="fade-in">
       <h2>Publications</h2>
       <ul class="pub-list">
         <li>
@@ -627,7 +728,7 @@
     </section>
 
     <!-- Teaching -->
-    <section id="teaching">
+    <section id="teaching" class="fade-in">
       <h2>Teaching Assistantships</h2>
       <ul class="teaching-list">
         <li>
@@ -652,7 +753,7 @@
     </section>
 
     <!-- Press -->
-    <section id="press">
+    <section id="press" class="fade-in">
       <h2>Press Coverage</h2>
       <ul class="press-list">
         <li>
@@ -679,7 +780,7 @@
     </section>
 
     <!-- Remaining Video -->
-    <section id="videos">
+    <section id="videos" class="fade-in">
       <h2>More Videos</h2>
       <div class="video-grid">
         <iframe src="https://www.youtube.com/embed/0C4N8oTKqAg?si=LUJXzc9RgkownVVq" title="Research video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -692,5 +793,38 @@
     Fanjun (Frank) Bu &middot; Cornell Tech &middot; fb266@cornell.edu
   </footer>
 
+  <script>
+    // Dark mode toggle
+    (function() {
+      const toggle = document.getElementById('themeToggle');
+      const html = document.documentElement;
+      const saved = localStorage.getItem('theme');
+      if (saved) {
+        html.setAttribute('data-theme', saved);
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        html.setAttribute('data-theme', 'dark');
+      }
+      toggle.addEventListener('click', function() {
+        const current = html.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+    })();
+
+    // Scroll-triggered fade-in
+    (function() {
+      var els = document.querySelectorAll('.fade-in');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+      els.forEach(function(el) { observer.observe(el); });
+    })();
+  </script>
 </body>
 </html>
