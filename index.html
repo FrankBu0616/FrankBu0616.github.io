@@ -36,7 +36,7 @@
       --accent-light: #dbeafe;
       --border: #e5e5e5;
       --radius: 6px;
-      --max-w: 820px;
+      --max-w: 1120px;
       --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-serif: 'IBM Plex Serif', Georgia, serif;
     }
@@ -284,10 +284,33 @@
       letter-spacing: -0.01em;
     }
 
+    /* ── Two-column layout ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 0 2.5rem;
+      align-items: start;
+    }
+    .col-main {
+      min-width: 0;
+    }
+    .col-side {
+      position: sticky;
+      top: 64px;
+      padding: 1.5rem 0;
+    }
+    .col-side h2 {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.01em;
+    }
+
     /* ── Selected Projects ── */
     .project {
-      margin-bottom: 2rem;
-      padding-bottom: 2rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
       border-bottom: 1px solid #f0f0f0;
     }
     .project:last-child {
@@ -297,9 +320,9 @@
     }
     .project h3 {
       font-family: var(--font-serif);
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 500;
-      margin-bottom: .5rem;
+      margin-bottom: .4rem;
     }
     .project-meta {
       font-size: 13px;
@@ -314,10 +337,10 @@
       margin-bottom: 0;
     }
     .project-desc {
-      font-size: 14.5px;
+      font-size: 13px;
       color: var(--fg-secondary);
-      line-height: 1.7;
-      margin-bottom: .75rem;
+      line-height: 1.6;
+      margin-bottom: .5rem;
     }
     .project-video {
       margin-top: .75rem;
@@ -479,6 +502,18 @@
     }
 
     /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+      .col-side {
+        position: static;
+        padding: 0;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 2rem;
+        margin-bottom: 1rem;
+      }
+    }
     @media (max-width: 640px) {
       .hero { flex-direction: column; align-items: center; text-align: center; gap: 1.5rem; padding: 2rem 0 2rem; }
       .hero-img { width: 120px; height: 120px; }
@@ -548,81 +583,11 @@
       </div>
     </div>
 
-    <!-- Selected Projects -->
-    <section id="projects" class="fade-in">
-      <h2>Selected Projects</h2>
+    <!-- Two-column layout -->
+    <div class="two-col">
 
-      <!-- VLM for Social Intelligence -->
-      <div class="project">
-        <h3>Vision-Language Models for Social Robot Intelligence</h3>
-        <div class="project-meta">
-          <span class="pub-venue">arXiv</span>
-          <span class="pub-venue">ICSR '24</span>
-        </div>
-        <p class="project-desc">
-          Investigating how vision-language models can serve as proxies for social intelligence in human-robot interaction, including building datasets and benchmarks for evaluating social signaling in urban public HRI scenarios.
-        </p>
-        <div class="project-video">
-          <iframe src="https://www.youtube.com/embed/R8sI5auGlc8?si=rBfMLg-HU64iOfKq" title="Bootstrapping Autonomy in Social Human-Robot Interactions using Vision Language Models" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <div class="project-links">
-          <a href="https://arxiv.org/abs/2512.07177">arXiv Preprint</a>
-          <a href="https://link.springer.com/chapter/10.1007/978-981-96-3525-2_38">ICSR '24 (ReStory)</a>
-          <a href="https://link.springer.com/chapter/10.1007/978-981-96-3525-2_40">ICSR '24 (SSUP-HRI)</a>
-        </div>
-      </div>
-
-      <!-- Trash Barrel Robots -->
-      <div class="project">
-        <h3>Trash Barrel Robots in Public Spaces</h3>
-        <div class="project-meta">
-          <span class="pub-venue">THRI '25</span>
-          <span class="pub-venue">CHI '24</span>
-          <span class="pub-venue">HRI '23</span>
-          <span class="pub-award">Featured on CNN, NPR, IEEE Spectrum</span>
-        </div>
-        <p class="project-desc">
-          Deployed autonomous robotic trash barrels in a New York City public plaza to study how people interact with robots in uncontrolled social settings. The project produced multiple publications studying emergent interactions, public sense-making, and field deployment methodology, and received widespread media coverage.
-        </p>
-        <div class="project-video">
-          <iframe src="https://www.youtube.com/embed/pS5ptE2USSo" title="Trash Barrel Robots in the City" allowfullscreen></iframe>
-        </div>
-        <div class="project-links">
-          <a href="https://dl.acm.org/doi/full/10.1145/3731252">THRI '25 Paper</a>
-          <a href="https://dl.acm.org/doi/10.1145/3613904.3642610">CHI '24 Paper</a>
-          <a href="https://dl.acm.org/doi/abs/10.1145/3568294.3580206">HRI '23 Paper</a>
-          <a href="https://dl.acm.org/doi/10.1145/3613905.3651044">CHI EA '24 Field Notes</a>
-        </div>
-        <div class="project-press">
-          Press: <a href="https://www.cnn.com/videos/business/2023/04/11/robotic-trash-cans-nyc-cornell-contd-orig-fj.cnn-business">CNN</a> &middot;
-          <a href="https://www.npr.org/2023/04/16/1170293941/researchers-released-robot-trash-cans-in-nyc-to-see-how-people-would-react#:~:text=Researchers%20released%20robot%20trash%20cans,how%20people%20would%20react%20%3A%20NPR&text=Books%20Podcast-,Researchers%20released%20robot%20trash%20cans%20in%20NYC%20to%20see%20how,interacted%20with%20the%20robo%2Dbins.">NPR</a> &middot;
-          <a href="https://news.cornell.edu/stories/2023/04/almost-everyone-likes-helpful-trash-robot">Cornell Chronicle</a> &middot;
-          <a href="https://www.usatoday.com/story/news/nation/2023/04/15/video-robot-trash-cans-new-york-city/11666593002/">USA TODAY</a> &middot;
-          <a href="https://spectrum.ieee.org/nyc-trash-robots">IEEE Spectrum</a>
-        </div>
-      </div>
-
-      <!-- Portobello -->
-      <div class="project">
-        <h3>Portobello: Driving Simulation on Real Roads</h3>
-        <div class="project-meta">
-          <span class="pub-venue">CHI '24</span>
-          <span class="pub-venue">CHI '22</span>
-          <span class="pub-award">Honorable Mention Award</span>
-        </div>
-        <p class="project-desc">
-          Extended driving simulation from the lab to the road, enabling researchers to study human responses to simulated driving scenarios using real vehicles in real traffic. The Portobello system and the broader XR-OOM platform bridge controlled experimentation with ecological validity.
-        </p>
-        <div class="project-video">
-          <iframe src="https://www.youtube.com/embed/Y-R6iiF60jY" title="Portobello: Extending driving simulation from the lab to the road" allowfullscreen></iframe>
-        </div>
-        <div class="project-links">
-          <a href="https://dl.acm.org/doi/full/10.1145/3613904.3642341">CHI '24 Paper</a>
-          <a href="https://dl.acm.org/doi/abs/10.1145/3491102.3517704">CHI '22 Paper (XR-OOM)</a>
-          <a href="https://dl.acm.org/doi/full/10.1145/3706599.3720255">CHI EA '25 (Diffusion Models)</a>
-        </div>
-      </div>
-    </section>
+    <!-- Main content column -->
+    <div class="col-main">
 
     <!-- News -->
     <section id="news" class="fade-in">
@@ -779,13 +744,93 @@
       </ul>
     </section>
 
-    <!-- Remaining Video -->
+    <!-- More Videos -->
     <section id="videos" class="fade-in">
       <h2>More Videos</h2>
       <div class="video-grid">
         <iframe src="https://www.youtube.com/embed/0C4N8oTKqAg?si=LUJXzc9RgkownVVq" title="Research video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </section>
+
+    </div> <!-- /.col-main -->
+
+    <!-- Sidebar: Projects -->
+    <div class="col-side fade-in" id="projects">
+      <h2>Selected Projects</h2>
+
+      <!-- VLM for Social Intelligence -->
+      <div class="project">
+        <h3>Vision-Language Models for Social Robot Intelligence</h3>
+        <div class="project-meta">
+          <span class="pub-venue">arXiv</span>
+          <span class="pub-venue">ICSR '24</span>
+        </div>
+        <p class="project-desc">
+          Investigating how vision-language models can serve as proxies for social intelligence in human-robot interaction, including building datasets and benchmarks for evaluating social signaling in urban public HRI scenarios.
+        </p>
+        <div class="project-video">
+          <iframe src="https://www.youtube.com/embed/R8sI5auGlc8?si=rBfMLg-HU64iOfKq" title="Bootstrapping Autonomy in Social Human-Robot Interactions using Vision Language Models" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="project-links">
+          <a href="https://arxiv.org/abs/2512.07177">arXiv Preprint</a>
+          <a href="https://link.springer.com/chapter/10.1007/978-981-96-3525-2_38">ICSR '24 (ReStory)</a>
+          <a href="https://link.springer.com/chapter/10.1007/978-981-96-3525-2_40">ICSR '24 (SSUP-HRI)</a>
+        </div>
+      </div>
+
+      <!-- Trash Barrel Robots -->
+      <div class="project">
+        <h3>Trash Barrel Robots in Public Spaces</h3>
+        <div class="project-meta">
+          <span class="pub-venue">THRI '25</span>
+          <span class="pub-venue">CHI '24</span>
+          <span class="pub-venue">HRI '23</span>
+          <span class="pub-award">Featured on CNN, NPR, IEEE Spectrum</span>
+        </div>
+        <p class="project-desc">
+          Deployed autonomous robotic trash barrels in a New York City public plaza to study how people interact with robots in uncontrolled social settings. The project produced multiple publications studying emergent interactions, public sense-making, and field deployment methodology, and received widespread media coverage.
+        </p>
+        <div class="project-video">
+          <iframe src="https://www.youtube.com/embed/pS5ptE2USSo" title="Trash Barrel Robots in the City" allowfullscreen></iframe>
+        </div>
+        <div class="project-links">
+          <a href="https://dl.acm.org/doi/full/10.1145/3731252">THRI '25 Paper</a>
+          <a href="https://dl.acm.org/doi/10.1145/3613904.3642610">CHI '24 Paper</a>
+          <a href="https://dl.acm.org/doi/abs/10.1145/3568294.3580206">HRI '23 Paper</a>
+          <a href="https://dl.acm.org/doi/10.1145/3613905.3651044">CHI EA '24 Field Notes</a>
+        </div>
+        <div class="project-press">
+          Press: <a href="https://www.cnn.com/videos/business/2023/04/11/robotic-trash-cans-nyc-cornell-contd-orig-fj.cnn-business">CNN</a> &middot;
+          <a href="https://www.npr.org/2023/04/16/1170293941/researchers-released-robot-trash-cans-in-nyc-to-see-how-people-would-react#:~:text=Researchers%20released%20robot%20trash%20cans,how%20people%20would%20react%20%3A%20NPR&text=Books%20Podcast-,Researchers%20released%20robot%20trash%20cans%20in%20NYC%20to%20see%20how,interacted%20with%20the%20robo%2Dbins.">NPR</a> &middot;
+          <a href="https://news.cornell.edu/stories/2023/04/almost-everyone-likes-helpful-trash-robot">Cornell Chronicle</a> &middot;
+          <a href="https://www.usatoday.com/story/news/nation/2023/04/15/video-robot-trash-cans-new-york-city/11666593002/">USA TODAY</a> &middot;
+          <a href="https://spectrum.ieee.org/nyc-trash-robots">IEEE Spectrum</a>
+        </div>
+      </div>
+
+      <!-- Portobello -->
+      <div class="project">
+        <h3>Portobello: Driving Simulation on Real Roads</h3>
+        <div class="project-meta">
+          <span class="pub-venue">CHI '24</span>
+          <span class="pub-venue">CHI '22</span>
+          <span class="pub-award">Honorable Mention Award</span>
+        </div>
+        <p class="project-desc">
+          Extended driving simulation from the lab to the road, enabling researchers to study human responses to simulated driving scenarios using real vehicles in real traffic. The Portobello system and the broader XR-OOM platform bridge controlled experimentation with ecological validity.
+        </p>
+        <div class="project-video">
+          <iframe src="https://www.youtube.com/embed/Y-R6iiF60jY" title="Portobello: Extending driving simulation from the lab to the road" allowfullscreen></iframe>
+        </div>
+        <div class="project-links">
+          <a href="https://dl.acm.org/doi/full/10.1145/3613904.3642341">CHI '24 Paper</a>
+          <a href="https://dl.acm.org/doi/abs/10.1145/3491102.3517704">CHI '22 Paper (XR-OOM)</a>
+          <a href="https://dl.acm.org/doi/full/10.1145/3706599.3720255">CHI EA '25 (Diffusion Models)</a>
+        </div>
+      </div>
+    </div> <!-- /.col-side -->
+
+    </div> <!-- /.two-col -->
 
   </main>
 
