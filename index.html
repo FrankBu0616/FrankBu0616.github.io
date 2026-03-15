@@ -296,9 +296,16 @@
     }
     .col-side {
       position: sticky;
-      top: 64px;
+      top: 52px;
+      max-height: calc(100vh - 52px);
+      overflow-y: auto;
       padding: 1.5rem 0;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
     }
+    .col-side::-webkit-scrollbar { width: 4px; }
+    .col-side::-webkit-scrollbar-track { background: transparent; }
+    .col-side::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
     .col-side h2 {
       font-family: var(--font-serif);
       font-size: 1.3rem;
@@ -491,6 +498,51 @@
       border-radius: var(--radius);
     }
 
+    /* ── Lite YouTube facade ── */
+    .lite-yt {
+      position: relative;
+      cursor: pointer;
+      background: #000;
+      background-size: cover;
+      background-position: center;
+    }
+    .lite-yt::before {
+      content: '';
+      display: block;
+      padding-top: 56.25%; /* 16:9 */
+    }
+    .lite-yt::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 60px; height: 42px;
+      margin: -21px 0 0 -30px;
+      background: rgba(0,0,0,.75);
+      border-radius: 10px;
+      transition: background .15s;
+    }
+    .lite-yt:hover::after { background: #e00; }
+    .lite-yt svg {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 18px; height: 18px;
+      margin: -9px 0 0 -7px;
+      z-index: 1;
+      fill: #fff;
+      pointer-events: none;
+    }
+    .lite-yt iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* ── Active nav link ── */
+    .nav-links a.active {
+      color: var(--accent);
+    }
+
     /* ── Footer ── */
     footer {
       max-width: var(--max-w);
@@ -508,7 +560,10 @@
       }
       .col-side {
         position: static;
+        max-height: none;
+        overflow-y: visible;
         padding: 0;
+        order: -1;
         border-bottom: 1px solid var(--border);
         padding-bottom: 2rem;
         margin-bottom: 1rem;
@@ -748,7 +803,9 @@
     <section id="videos" class="fade-in">
       <h2>More Videos</h2>
       <div class="video-grid">
-        <iframe src="https://www.youtube.com/embed/0C4N8oTKqAg?si=LUJXzc9RgkownVVq" title="Research video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div class="lite-yt" data-id="0C4N8oTKqAg" title="Studying Robots in Urban Places">
+          <svg viewBox="0 0 18 18"><path d="M3 2l12 7-12 7z"/></svg>
+        </div>
       </div>
     </section>
 
@@ -769,7 +826,9 @@
           Investigating how vision-language models can serve as proxies for social intelligence in human-robot interaction, including building datasets and benchmarks for evaluating social signaling in urban public HRI scenarios.
         </p>
         <div class="project-video">
-          <iframe src="https://www.youtube.com/embed/R8sI5auGlc8?si=rBfMLg-HU64iOfKq" title="Bootstrapping Autonomy in Social Human-Robot Interactions using Vision Language Models" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <div class="lite-yt" data-id="R8sI5auGlc8" title="Bootstrapping Autonomy in Social Human-Robot Interactions using Vision Language Models">
+            <svg viewBox="0 0 18 18"><path d="M3 2l12 7-12 7z"/></svg>
+          </div>
         </div>
         <div class="project-links">
           <a href="https://arxiv.org/abs/2512.07177">arXiv Preprint</a>
@@ -791,7 +850,9 @@
           Deployed autonomous robotic trash barrels in a New York City public plaza to study how people interact with robots in uncontrolled social settings. The project produced multiple publications studying emergent interactions, public sense-making, and field deployment methodology, and received widespread media coverage.
         </p>
         <div class="project-video">
-          <iframe src="https://www.youtube.com/embed/pS5ptE2USSo" title="Trash Barrel Robots in the City" allowfullscreen></iframe>
+          <div class="lite-yt" data-id="pS5ptE2USSo" title="Trash Barrel Robots in the City">
+            <svg viewBox="0 0 18 18"><path d="M3 2l12 7-12 7z"/></svg>
+          </div>
         </div>
         <div class="project-links">
           <a href="https://dl.acm.org/doi/full/10.1145/3731252">THRI '25 Paper</a>
@@ -820,7 +881,9 @@
           Extended driving simulation from the lab to the road, enabling researchers to study human responses to simulated driving scenarios using real vehicles in real traffic. The Portobello system and the broader XR-OOM platform bridge controlled experimentation with ecological validity.
         </p>
         <div class="project-video">
-          <iframe src="https://www.youtube.com/embed/Y-R6iiF60jY" title="Portobello: Extending driving simulation from the lab to the road" allowfullscreen></iframe>
+          <div class="lite-yt" data-id="Y-R6iiF60jY" title="Portobello: Extending driving simulation from the lab to the road">
+            <svg viewBox="0 0 18 18"><path d="M3 2l12 7-12 7z"/></svg>
+          </div>
         </div>
         <div class="project-links">
           <a href="https://dl.acm.org/doi/full/10.1145/3613904.3642341">CHI '24 Paper</a>
@@ -869,6 +932,43 @@
         });
       }, { threshold: 0.08 });
       els.forEach(function(el) { observer.observe(el); });
+    })();
+
+    // Lite YouTube facades
+    (function() {
+      var players = document.querySelectorAll('.lite-yt');
+      players.forEach(function(p) {
+        var id = p.getAttribute('data-id');
+        p.style.backgroundImage = 'url(https://i.ytimg.com/vi/' + id + '/hqdefault.jpg)';
+        p.addEventListener('click', function() {
+          var iframe = document.createElement('iframe');
+          iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1';
+          iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+          iframe.setAttribute('allowfullscreen', '');
+          iframe.setAttribute('loading', 'lazy');
+          p.textContent = '';
+          p.appendChild(iframe);
+        }, { once: true });
+      });
+    })();
+
+    // Active nav highlighting
+    (function() {
+      var sections = document.querySelectorAll('section[id], .col-side[id]');
+      var navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          var id = entry.target.getAttribute('id');
+          var link = document.querySelector('.nav-links a[href="#' + id + '"]');
+          if (link) {
+            if (entry.isIntersecting) {
+              navLinks.forEach(function(l) { l.classList.remove('active'); });
+              link.classList.add('active');
+            }
+          }
+        });
+      }, { rootMargin: '-20% 0px -60% 0px' });
+      sections.forEach(function(s) { observer.observe(s); });
     })();
   </script>
 </body>
