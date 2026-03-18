@@ -165,6 +165,21 @@
       outline-offset: 2px;
     }
 
+    /* ── Ambient background ── */
+    #bgCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .09;
+    }
+    [data-theme="dark"] #bgCanvas {
+      opacity: .12;
+    }
+
     /* ── Skip link ── */
     .skip-link {
       position: absolute;
@@ -613,7 +628,161 @@
       color: var(--accent);
     }
 
-    /* ── Footer ── */
+    /* ── Micro-interactions ── */
+
+    /* Profile image — gentle scale + color on hover */
+    .hero-img {
+      transition: transform var(--dur-mid) var(--ease-out), filter var(--dur-mid) var(--ease-out);
+    }
+    .hero-img:hover {
+      transform: scale(1.05);
+      filter: grayscale(0%);
+    }
+
+    /* Nav links — animated underline that slides in from left */
+    .nav-links a {
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 8px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 1px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--dur-mid) var(--ease-out);
+    }
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      transform: scaleX(1);
+    }
+
+    /* Project cards — lift + shadow on hover */
+    .project {
+      border-radius: var(--radius);
+      padding: 1rem;
+      margin-left: -.5rem;
+      margin-right: -.5rem;
+      transition: transform var(--dur-mid) var(--ease-out), box-shadow var(--dur-mid) var(--ease-out), background var(--dur-mid) var(--ease-out);
+    }
+    .project:hover {
+      transform: translateY(-2px);
+      background: var(--bg-alt);
+      box-shadow: 0 4px 20px oklch(15% 0.01 250 / .06);
+    }
+    [data-theme="dark"] .project:hover {
+      box-shadow: 0 4px 20px oklch(0% 0 0 / .25);
+    }
+
+    /* Publication rows — subtle highlight bar */
+    .pub-list li {
+      border-radius: var(--radius);
+      padding-left: .75rem;
+      padding-right: .75rem;
+      margin-left: -.75rem;
+      margin-right: -.75rem;
+      transition: background var(--dur-fast) var(--ease-out);
+    }
+    .pub-list li:hover {
+      background: var(--bg-alt);
+    }
+
+    /* News items — nudge right on hover */
+    .news-list li {
+      border-radius: var(--radius);
+      padding-left: .5rem;
+      padding-right: .5rem;
+      margin-left: -.5rem;
+      margin-right: -.5rem;
+      transition: background var(--dur-fast) var(--ease-out), padding-left var(--dur-mid) var(--ease-out);
+    }
+    .news-list li:hover {
+      background: var(--bg-alt);
+      padding-left: .75rem;
+    }
+
+    /* Teaching rows — same subtle highlight */
+    .teaching-list li {
+      border-radius: var(--radius);
+      padding-left: .5rem;
+      padding-right: .5rem;
+      margin-left: -.5rem;
+      margin-right: -.5rem;
+      transition: background var(--dur-fast) var(--ease-out);
+    }
+    .teaching-list li:hover {
+      background: var(--bg-alt);
+    }
+
+    /* Press rows — highlight */
+    .press-list li {
+      border-radius: var(--radius);
+      padding-left: .5rem;
+      padding-right: .5rem;
+      margin-left: -.5rem;
+      margin-right: -.5rem;
+      transition: background var(--dur-fast) var(--ease-out);
+    }
+    .press-list li:hover {
+      background: var(--bg-alt);
+    }
+
+    /* Video thumbnails — zoom on hover */
+    .lite-yt {
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform var(--dur-mid) var(--ease-out), box-shadow var(--dur-mid) var(--ease-out);
+    }
+    .lite-yt:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 24px oklch(15% 0.01 250 / .12);
+    }
+    [data-theme="dark"] .lite-yt:hover {
+      box-shadow: 0 6px 24px oklch(0% 0 0 / .35);
+    }
+
+    /* Theme toggle — spin on click */
+    .theme-toggle {
+      transition: border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out), transform var(--dur-mid) var(--ease-out);
+    }
+    .theme-toggle.spin {
+      transform: rotate(360deg);
+    }
+
+    /* Hero pill buttons — lift on hover */
+    .hero-links a {
+      transition: border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out), transform var(--dur-mid) var(--ease-out), box-shadow var(--dur-mid) var(--ease-out), background var(--dur-fast) var(--ease-out);
+    }
+    .hero-links a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px oklch(15% 0.01 250 / .08);
+    }
+    [data-theme="dark"] .hero-links a:hover {
+      box-shadow: 0 2px 8px oklch(0% 0 0 / .2);
+    }
+
+    /* Job banner — gentle pulse glow */
+    @keyframes banner-glow {
+      0%, 100% { box-shadow: 0 0 0 0 oklch(52% 0.19 260 / .08); }
+      50% { box-shadow: 0 0 0 6px oklch(52% 0.19 260 / 0); }
+    }
+    .job-banner {
+      animation: banner-glow 3s var(--ease-out) infinite;
+    }
+
+    /* Pub venue badges — pop on hover */
+    .pub-venue {
+      transition: transform var(--dur-fast) var(--ease-out);
+    }
+    .pub-venue:hover {
+      transform: scale(1.08);
+    }
+
+    /* Footer ── */
     footer {
       max-width: var(--max-w);
       margin: 0 auto;
@@ -655,6 +824,9 @@
   </style>
 </head>
 <body>
+
+  <!-- Ambient background canvas -->
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
 
   <!-- Skip to content (a11y) -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -990,6 +1162,9 @@
         const next = current === 'dark' ? 'light' : 'dark';
         html.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
+        // Spin animation
+        toggle.classList.add('spin');
+        setTimeout(function() { toggle.classList.remove('spin'); }, 300);
       });
     })();
 
@@ -1023,6 +1198,240 @@
           p.appendChild(iframe);
         }, { once: true });
       });
+    })();
+
+    // Ambient trash barrel robots background
+    (function() {
+      var canvas = document.getElementById('bgCanvas');
+      var ctx = canvas.getContext('2d');
+      var dpr = window.devicePixelRatio || 1;
+      var robots = [];
+      var numRobots = 6;
+      var raf;
+
+      // roundRect polyfill for older browsers
+      if (!ctx.roundRect) {
+        ctx.roundRect = function(x, y, w, h, r) {
+          if (typeof r === 'number') r = [r];
+          var rad = r[0] || 0;
+          this.beginPath();
+          this.moveTo(x + rad, y);
+          this.lineTo(x + w - rad, y);
+          this.quadraticCurveTo(x + w, y, x + w, y + rad);
+          this.lineTo(x + w, y + h - rad);
+          this.quadraticCurveTo(x + w, y + h, x + w - rad, y + h);
+          this.lineTo(x + rad, y + h);
+          this.quadraticCurveTo(x, y + h, x, y + h - rad);
+          this.lineTo(x, y + rad);
+          this.quadraticCurveTo(x, y, x + rad, y);
+          this.closePath();
+        };
+      }
+
+      function resize() {
+        canvas.width = window.innerWidth * dpr;
+        canvas.height = window.innerHeight * dpr;
+        ctx.scale(dpr, dpr);
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      // Create floating barrel robots
+      for (var i = 0; i < numRobots; i++) {
+        robots.push({
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * window.innerHeight,
+          size: 36 + Math.random() * 32,
+          speedX: (Math.random() - 0.5) * 0.15,
+          speedY: -0.08 - Math.random() * 0.12,
+          rotation: (Math.random() - 0.5) * 0.3,
+          rotSpeed: (Math.random() - 0.5) * 0.0005,
+          wobble: Math.random() * Math.PI * 2
+        });
+      }
+
+      function drawBarrelRobot(x, y, size, rotation) {
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(rotation);
+        var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        var col = isDark ? '#7b9cf5' : '#3b6de0';
+        ctx.strokeStyle = col;
+        ctx.fillStyle = col;
+        ctx.lineWidth = 2.2;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+
+        var s = size;
+
+        // === HOVERBOARD BASE ===
+        // Real hoverboard: two large wheels on either side of a central platform
+        var baseY = s * 0.62;
+        var wheelR = s * 0.16;       // big chunky wheels
+        var wheelW = s * 0.12;       // wheel thickness
+        var axleW = s * 0.6;         // distance between wheel centers
+        var plateW = s * 0.5;        // center platform width
+        var plateH = s * 0.08;
+
+        // Center platform (the foot-pad area between wheels)
+        ctx.roundRect(-plateW/2, baseY - plateH/2, plateW, plateH, s * 0.02);
+        ctx.stroke();
+
+        // Left wheel — thick rectangle with rounded ends
+        ctx.roundRect(-axleW/2 - wheelW/2, baseY - wheelR, wheelW, wheelR * 2, wheelW/2);
+        ctx.stroke();
+        // Left wheel hub line
+        ctx.beginPath();
+        ctx.moveTo(-axleW/2, baseY - wheelR * 0.4);
+        ctx.lineTo(-axleW/2, baseY + wheelR * 0.4);
+        ctx.stroke();
+
+        // Right wheel
+        ctx.roundRect(axleW/2 - wheelW/2, baseY - wheelR, wheelW, wheelR * 2, wheelW/2);
+        ctx.stroke();
+        // Right wheel hub line
+        ctx.beginPath();
+        ctx.moveTo(axleW/2, baseY - wheelR * 0.4);
+        ctx.lineTo(axleW/2, baseY + wheelR * 0.4);
+        ctx.stroke();
+
+        // Left axle connector
+        ctx.beginPath();
+        ctx.moveTo(-plateW/2, baseY);
+        ctx.lineTo(-axleW/2 + wheelW/2, baseY);
+        ctx.stroke();
+        // Right axle connector
+        ctx.beginPath();
+        ctx.moveTo(plateW/2, baseY);
+        ctx.lineTo(axleW/2 - wheelW/2, baseY);
+        ctx.stroke();
+
+        // === ROUND BRUTE BARREL ===
+        var topW = s * 0.72;
+        var botW = s * 0.56;
+        var barrelTop = -s * 0.48;
+        var barrelBot = baseY - plateH/2 - s*0.02;
+        var barrelH = barrelBot - barrelTop;
+
+        // Barrel body outline — left side (slight taper)
+        ctx.beginPath();
+        ctx.moveTo(-topW/2, barrelTop);
+        ctx.lineTo(-botW/2, barrelBot);
+        ctx.stroke();
+        // Right side
+        ctx.beginPath();
+        ctx.moveTo(topW/2, barrelTop);
+        ctx.lineTo(botW/2, barrelBot);
+        ctx.stroke();
+
+        // Top rim — bold ellipse
+        ctx.lineWidth = 2.8;
+        ctx.beginPath();
+        ctx.ellipse(0, barrelTop, topW/2, s * 0.09, 0, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.lineWidth = 2.2;
+
+        // Bottom edge (front-facing half-ellipse)
+        ctx.beginPath();
+        ctx.ellipse(0, barrelBot, botW/2, s * 0.06, 0, 0, Math.PI);
+        ctx.stroke();
+
+        // Horizontal band (single ridge near top of barrel)
+        var bandT = 0.25;
+        var bandY = barrelTop + s * 0.09 + bandT * (barrelH - s * 0.09);
+        var bandFrac = (bandY - barrelTop) / barrelH;
+        var bandHalfW = topW/2 + bandFrac * (botW/2 - topW/2);
+        ctx.lineWidth = 1.8;
+        ctx.beginPath();
+        ctx.moveTo(-bandHalfW, bandY);
+        ctx.lineTo(bandHalfW, bandY);
+        ctx.stroke();
+        ctx.lineWidth = 2.2;
+
+        // Side handles (molded into the barrel)
+        var handleY = barrelTop + barrelH * 0.22;
+        var lhx = -(topW/2 + (botW/2 - topW/2) * 0.22);
+        var rhx = -lhx;
+        ctx.lineWidth = 2;
+
+        // Left handle
+        ctx.beginPath();
+        ctx.moveTo(lhx, handleY - s * 0.05);
+        ctx.quadraticCurveTo(lhx - s * 0.07, handleY, lhx, handleY + s * 0.05);
+        ctx.stroke();
+
+        // Right handle
+        ctx.beginPath();
+        ctx.moveTo(rhx, handleY - s * 0.05);
+        ctx.quadraticCurveTo(rhx + s * 0.07, handleY, rhx, handleY + s * 0.05);
+        ctx.stroke();
+        ctx.lineWidth = 2.2;
+
+        // === LID (flat disc sitting on top) ===
+        ctx.beginPath();
+        ctx.ellipse(0, barrelTop - s * 0.04, topW * 0.44, s * 0.05, 0, 0, Math.PI * 2);
+        ctx.stroke();
+        // Lid handle bump
+        ctx.beginPath();
+        ctx.arc(0, barrelTop - s * 0.09, s * 0.035, 0, Math.PI * 2);
+        ctx.fill();
+
+        // === 360° CAMERA ON A STICK ===
+        var stickX = s * 0.08;
+        var stickBase = barrelTop - s * 0.04;
+        var stickTop = barrelTop - s * 0.38;
+        ctx.lineWidth = 1.8;
+
+        // Thin stick
+        ctx.beginPath();
+        ctx.moveTo(stickX, stickBase);
+        ctx.lineTo(stickX, stickTop);
+        ctx.stroke();
+
+        // Camera sphere (360° cam is round)
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(stickX, stickTop - s * 0.04, s * 0.05, 0, Math.PI * 2);
+        ctx.stroke();
+        // Lens ring
+        ctx.beginPath();
+        ctx.arc(stickX, stickTop - s * 0.04, s * 0.02, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.restore();
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+
+        for (var i = 0; i < robots.length; i++) {
+          var bot = robots[i];
+          bot.wobble += 0.008;
+          bot.x += bot.speedX + Math.sin(bot.wobble) * 0.1;
+          bot.y += bot.speedY;
+          bot.rotation += bot.rotSpeed;
+
+          // Wrap around
+          if (bot.y < -bot.size * 2) { bot.y = h + bot.size * 2; bot.x = Math.random() * w; }
+          if (bot.x < -bot.size * 2) bot.x = w + bot.size * 2;
+          if (bot.x > w + bot.size * 2) bot.x = -bot.size * 2;
+
+          drawBarrelRobot(bot.x, bot.y, bot.size, bot.rotation);
+        }
+        raf = requestAnimationFrame(animate);
+      }
+
+      // Respect reduced motion
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        animate();
+      } else {
+        // Draw once, static
+        for (var i = 0; i < robots.length; i++) {
+          drawBarrelRobot(robots[i].x, robots[i].y, robots[i].size, robots[i].rotation);
+        }
+      }
     })();
 
     // Active nav highlighting
