@@ -20,6 +20,38 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%232563eb'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='700' font-size='30' fill='white'>FB</text></svg>">
 
+  <!-- Structured Data (JSON-LD) for academic profile -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Fanjun (Frank) Bu",
+    "url": "https://frankbu0616.github.io/",
+    "image": "https://frankbu0616.github.io/self.jpg",
+    "jobTitle": "Ph.D. Candidate in Computer Science",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Cornell Tech",
+      "url": "https://tech.cornell.edu/"
+    },
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Cornell University"
+    },
+    "alumniOf": {
+      "@type": "Organization",
+      "name": "Cornell University"
+    },
+    "description": "Ph.D. candidate at Cornell Tech researching human-robot interaction. I build and deploy robots that interact with people in real-world public spaces.",
+    "email": "fb266@cornell.edu",
+    "sameAs": [
+      "https://scholar.google.com/citations?user=Co1HwVcAAAAJ&hl=en",
+      "https://github.com/FrankBu0616"
+    ],
+    "knowsAbout": ["Human-Robot Interaction", "Robotics", "Computer Science", "Vision-Language Models", "Driving Simulation", "VR/XR"]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet">
@@ -821,6 +853,73 @@
       .teaching-list li { flex-direction: column; gap: .15rem; }
       .teaching-year { width: auto; }
     }
+
+    /* ── Print stylesheet ── */
+    @media print {
+      /* Reset colors to black on white */
+      :root, [data-theme="dark"] {
+        --fg: #111;
+        --fg-secondary: #333;
+        --fg-muted: #555;
+        --bg: #fff;
+        --bg-alt: #fff;
+        --accent: #111;
+        --accent-light: #eee;
+        --border: #ccc;
+      }
+      body { font-size: 11pt; line-height: 1.5; }
+
+      /* Hide non-print elements */
+      #bgCanvas, .theme-toggle, .skip-link,
+      .lite-yt, .project-video, .video-grid,
+      section#videos, .job-banner { display: none !important; }
+
+      /* Remove sticky/fixed positioning */
+      nav { position: static; background: #fff; backdrop-filter: none; }
+      .col-side { position: static; max-height: none; overflow: visible; }
+
+      /* Single column for print */
+      .two-col { display: block; }
+
+      /* Remove animations and hover effects */
+      * {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        box-shadow: none !important;
+      }
+
+      /* Clean link styling — show URLs */
+      a { color: #111; text-decoration: underline; }
+      a[href^="mailto"]::after,
+      a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 9pt;
+        color: #666;
+        word-break: break-all;
+      }
+      /* Don't show URL for nav links and short labels */
+      .nav-links a::after,
+      .hero-links a::after,
+      .project-links a::after,
+      .project-press a::after,
+      .pub-extra a::after { content: none; }
+
+      /* Avoid page breaks inside items */
+      .project, .pub-list li { break-inside: avoid; }
+
+      /* Tighten spacing */
+      .hero { padding: 1rem 0; }
+      section { padding: 0.75rem 0; }
+      main { padding: 0; }
+      footer { padding: 1rem 0; }
+
+      /* Ensure profile photo prints */
+      .hero-img { filter: none; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+      /* Venue badges print cleanly */
+      .pub-venue, .pub-award { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
   </style>
 </head>
 <body>
@@ -893,9 +992,9 @@
     <section id="news" class="fade-in">
       <h2>News</h2>
       <ul class="news-list stagger-in">
-        <li style="--i:0"><span class="news-date">Nov 2024</span><span>Gave a <a href="https://europe.naverlabs.com/updates/2nd-hri-international-symposium/">talk</a> at the 2nd HRI International Symposium held by Naver Labs Europe.</span></li>
-        <li style="--i:1"><span class="news-date">June 2025</span><span>Returned to Toyota Research Institute for a second internship.</span></li>
-        <li style="--i:2"><span class="news-date">June 2025</span><span>Some new publications at CHI 2025!</span></li>
+        <li style="--i:0"><span class="news-date">June 2025</span><span>Returned to Toyota Research Institute for a second internship.</span></li>
+        <li style="--i:1"><span class="news-date">June 2025</span><span>Some new publications at CHI 2025!</span></li>
+        <li style="--i:2"><span class="news-date">Nov 2024</span><span>Gave a <a href="https://europe.naverlabs.com/updates/2nd-hri-international-symposium/">talk</a> at the 2nd HRI International Symposium held by Naver Labs Europe.</span></li>
         <li style="--i:3"><span class="news-date">May 2024</span><span>Start my summer internship at Toyota Research Institute.</span></li>
         <li style="--i:4"><span class="news-date">May 2023</span><span>Presented our work Portobello at CHI and received an Honorable Mention Award!</span></li>
         <li style="--i:5"><span class="news-date">May 2023</span><span>Gave a talk at Nokia Bell Labs Responsible AI Seminar.</span></li>
