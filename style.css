@@ -400,6 +400,16 @@ section h2 {
   border-radius: var(--radius);
   overflow: hidden;
 }
+
+/* Project thumbnail */
+.project-thumb-link { display: block; margin-top: .6rem; }
+.project-thumb {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  box-shadow: 0 6px 18px oklch(15% 0.01 250 / .06);
+}
 .project-video iframe {
   width: 100%;
   aspect-ratio: 16/9;
@@ -423,6 +433,89 @@ section h2 {
 }
 .project-press a { color: var(--fg-muted); }
 .project-press a:hover { color: var(--accent); }
+
+/* ── Robot Build Feature ── */
+.robot-build {
+  padding: 1.25rem;
+  margin-bottom: 1.75rem;
+  background: var(--accent-light);
+  border: 1px solid oklch(85% 0.06 260);
+  border-radius: 10px;
+}
+[data-theme="dark"] .robot-build {
+  border-color: oklch(30% 0.06 260);
+}
+.robot-build-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: .5rem;
+}
+.robot-build h2 {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin-bottom: .75rem;
+  color: var(--fg);
+}
+.robot-build-img-link { display: block; }
+.robot-build-img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+  margin-bottom: .85rem;
+}
+.robot-build-desc {
+  font-size: 0.8125rem;
+  color: var(--fg-secondary);
+  line-height: 1.65;
+  margin-bottom: .85rem;
+}
+.robot-specs {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+  font-size: 0.8rem;
+  color: var(--fg-secondary);
+  margin-bottom: 1rem;
+}
+.spec-label {
+  font-weight: 600;
+  color: var(--fg);
+  display: inline-block;
+  min-width: 58px;
+  margin-right: .4rem;
+}
+.robot-build-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  align-items: center;
+}
+.robot-build-cta {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: .35rem .85rem;
+  background: var(--accent);
+  color: oklch(99% 0.005 250) !important;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.robot-build-cta:hover {
+  background: oklch(45% 0.2 260);
+  text-decoration: none;
+}
+.robot-build-links a:not(.robot-build-cta) {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--accent);
+}
 
 /* ── News ── */
 .news-list { list-style: none; }

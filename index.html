@@ -283,20 +283,34 @@
       </ul>
     </section>
 
-    <!-- More Videos -->
-    <section id="videos" class="fade-in">
-      <h2>More Videos</h2>
-      <div class="video-grid">
-        <div class="lite-yt" data-id="0C4N8oTKqAg" title="Studying Robots in Urban Places">
-          <svg viewBox="0 0 18 18"><path d="M3 2l12 7-12 7z"/></svg>
-        </div>
-      </div>
-    </section>
-
     </div> <!-- /.col-main -->
 
-    <!-- Sidebar: Projects -->
-    <div class="col-side fade-in" id="projects">
+    <!-- Sidebar -->
+    <div class="col-side fade-in">
+
+      <!-- Robot Build Feature -->
+      <div class="robot-build" id="robot">
+        <div class="robot-build-label">I Built This</div>
+        <h2>Mobile Hoverboard Robot Base</h2>
+        <a class="robot-build-img-link" href="https://irl.tech.cornell.edu/mobile_hoverboard_robot_base/" target="_blank" rel="noopener">
+          <img src="https://irl.tech.cornell.edu/mobile_hoverboard_robot_base/assets/images/trashbot_demo.gif" alt="Mobile Hoverboard Robot Base in action" class="robot-build-img">
+        </a>
+        <p class="robot-build-desc">
+          A low-cost, modular mobile robot platform built from a deconstructed hoverboard. Attaches to everyday objects — trash bins, furniture — for field HRI studies. Uses Wizard of Oz teleoperation via dual Raspberry Pi and ROS 2 Humble.
+        </p>
+        <ul class="robot-specs">
+          <li><span class="spec-label">Drive</span>Hoverboard motors + ODrive controller</li>
+          <li><span class="spec-label">Compute</span>Dual Raspberry Pi · ROS 2 Humble</li>
+          <li><span class="spec-label">Control</span>8BitDo + Insta360 FPV feed</li>
+        </ul>
+        <div class="robot-build-links">
+          <a class="robot-build-cta" href="https://irl.tech.cornell.edu/mobile_hoverboard_robot_base/" target="_blank" rel="noopener">Project Page</a>
+          <a href="https://github.com/IRL-CT/Mobile_HRI_Lab_Hub" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+
+      <!-- Selected Projects -->
+      <div id="projects">
       <h2>Selected Projects</h2>
 
       <!-- VLM for Social Intelligence -->
@@ -375,6 +389,7 @@
           <a href="https://dl.acm.org/doi/full/10.1145/3706599.3720255">CHI EA '25 (Diffusion Models)</a>
         </div>
       </div>
+      </div> <!-- /#projects -->
     </div> <!-- /.col-side -->
 
     </div> <!-- /.two-col -->
