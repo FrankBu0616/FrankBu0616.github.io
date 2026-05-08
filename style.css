@@ -583,6 +583,12 @@ section h2 {
   font-weight: 500;
   margin-right: .5rem;
 }
+.pub-venue-detail {
+  font-size: 0.8125rem;
+  color: var(--fg-muted);
+  font-style: italic;
+  margin-top: .2rem;
+}
 
 /* ── Teaching ── */
 .teaching-list { list-style: none; }
