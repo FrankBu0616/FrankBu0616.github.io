@@ -485,6 +485,30 @@ section h2 {
   border-radius: 3px;
   margin-bottom: .6rem;
 }
+/* Header row with brand icon for cards that have one */
+.oss-card-header {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin-bottom: .25rem;
+}
+.oss-card-header .oss-card-label {
+  margin-bottom: .3rem;
+}
+.oss-card-header h3 {
+  margin-bottom: 0;
+}
+.oss-card-icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: block;
+  /* SVG uses currentColor — tint it to the page foreground */
+  color: var(--fg);
+}
+[data-theme="dark"] .oss-card-icon {
+  color: var(--fg);
+}
 .oss-card h3 {
   font-family: var(--font-serif);
   font-size: 1.1rem;

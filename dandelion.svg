@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" color="#0F0F12">
+  <title>Dandelion — colorful mark</title>
+  <g transform="rotate(35 60 60)">
+    <g stroke="currentColor" stroke-width="5" stroke-linecap="round">
+      <line x1="32" y1="30" x2="60" y2="90"/>
+      <line x1="60" y1="30" x2="60" y2="90"/>
+      <line x1="88" y1="30" x2="60" y2="90"/>
+    </g>
+    <g fill="currentColor">
+      <circle cx="32" cy="30" r="9"/>
+      <circle cx="60" cy="30" r="9"/>
+      <circle cx="88" cy="30" r="9"/>
+    </g>
+    <g transform="translate(60 90) rotate(45)">
+      <rect x="-11" y="-11" width="22" height="22" fill="#C97B4E"/>
+    </g>
+  </g>
+</svg>
