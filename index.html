@@ -70,7 +70,8 @@
     <div class="nav-inner">
       <span class="nav-name">Frank Bu</span>
       <div class="nav-links">
-        <a href="#projects">Projects</a>
+        <a href="#projects">Research</a>
+        <a href="#open-source">Open Source</a>
         <a href="#news">News</a>
         <a href="#publications">Publications</a>
         <a href="#teaching">Teaching</a>
@@ -90,6 +91,12 @@
       <span><strong>I'm on the job market</strong> for research scientist positions.</span>
       <a href="mailto:fb266@cornell.edu">fb266@cornell.edu</a>
     </div>
+
+    <!-- Two-column layout -->
+    <div class="two-col">
+
+    <!-- Main content column -->
+    <div class="col-main">
 
     <!-- Hero -->
     <div class="hero fade-in">
@@ -117,16 +124,11 @@
       </div>
     </div>
 
-    <!-- Two-column layout -->
-    <div class="two-col">
-
-    <!-- Main content column -->
-    <div class="col-main">
-
     <!-- News -->
     <section id="news" class="fade-in">
       <h2>News</h2>
       <ul class="news-list stagger-in">
+        <li style="--i:0"><span class="news-date">May 2026</span><span>Joining MSR as a research intern for the summer.</span></li>
         <li style="--i:0"><span class="news-date">June 2025</span><span>Returned to Toyota Research Institute for a second internship.</span></li>
         <li style="--i:1"><span class="news-date">June 2025</span><span>Some new publications at CHI 2025!</span></li>
         <li style="--i:2"><span class="news-date">Nov 2024</span><span>Gave a <a href="https://europe.naverlabs.com/updates/2nd-hri-international-symposium/">talk</a> at the 2nd HRI International Symposium held by Naver Labs Europe.</span></li>
@@ -134,6 +136,88 @@
         <li style="--i:4"><span class="news-date">May 2023</span><span>Presented our work Portobello at CHI and received an Honorable Mention Award!</span></li>
         <li style="--i:5"><span class="news-date">May 2023</span><span>Gave a talk at Nokia Bell Labs Responsible AI Seminar.</span></li>
       </ul>
+    </section>
+
+    <!-- Selected Projects (Research) -->
+    <section id="projects" class="fade-in">
+      <h2>Selected Research Projects</h2>
+
+      <!-- VLM for Social Intelligence -->
+      <div class="project">
+        <h3>Vision-Language Models for Social Robot Intelligence</h3>
+        <div class="project-meta">
+          <span class="pub-venue">arXiv</span>
+          <span class="pub-venue">ICSR '24</span>
+        </div>
+        <p class="project-desc">
+          Investigating how vision-language models can serve as proxies for social intelligence in human-robot interaction, including building datasets and benchmarks for evaluating social signaling in urban public HRI scenarios.
+        </p>
+        <div class="project-video">
+          <div class="lite-yt" data-id="R8sI5auGlc8" title="Bootstrapping Autonomy in Social Human-Robot Interactions using Vision Language Models">
+            <svg viewBox="0 0 18 18"><path d="M3 2l12 7-12 7z"/></svg>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://arxiv.org/abs/2512.07177">arXiv Preprint</a>
+          <a href="https://link.springer.com/chapter/10.1007/978-981-96-3525-2_38">ICSR '24 (ReStory)</a>
+          <a href="https://link.springer.com/chapter/10.1007/978-981-96-3525-2_40">ICSR '24 (SSUP-HRI)</a>
+        </div>
+      </div>
+
+      <!-- Trash Barrel Robots -->
+      <div class="project">
+        <h3>Trash Barrel Robots in Public Spaces</h3>
+        <div class="project-meta">
+          <span class="pub-venue">THRI '25</span>
+          <span class="pub-venue">CHI '24</span>
+          <span class="pub-venue">HRI '23</span>
+          <span class="pub-award">Featured on CNN, NPR, IEEE Spectrum</span>
+        </div>
+        <p class="project-desc">
+          Deployed autonomous robotic trash barrels in a New York City public plaza to study how people interact with robots in uncontrolled social settings. The project produced multiple publications studying emergent interactions, public sense-making, and field deployment methodology, and received widespread media coverage.
+        </p>
+        <div class="project-video">
+          <div class="lite-yt" data-id="pS5ptE2USSo" title="Trash Barrel Robots in the City">
+            <svg viewBox="0 0 18 18"><path d="M3 2l12 7-12 7z"/></svg>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://dl.acm.org/doi/full/10.1145/3731252">THRI '25 Paper</a>
+          <a href="https://dl.acm.org/doi/10.1145/3613904.3642610">CHI '24 Paper</a>
+          <a href="https://dl.acm.org/doi/abs/10.1145/3568294.3580206">HRI '23 Paper</a>
+          <a href="https://dl.acm.org/doi/10.1145/3613905.3651044">CHI EA '24 Field Notes</a>
+        </div>
+        <div class="project-press">
+          Press: <a href="https://www.cnn.com/videos/business/2023/04/11/robotic-trash-cans-nyc-cornell-contd-orig-fj.cnn-business">CNN</a> &middot;
+          <a href="https://www.npr.org/2023/04/16/1170293941/researchers-released-robot-trash-cans-in-nyc-to-see-how-people-would-react#:~:text=Researchers%20released%20robot%20trash%20cans,how%20people%20would%20react%20%3A%20NPR&text=Books%20Podcast-,Researchers%20released%20robot%20trash%20cans%20in%20NYC%20to%20see%20how,interacted%20with%20the%20robo%2Dbins.">NPR</a> &middot;
+          <a href="https://news.cornell.edu/stories/2023/04/almost-everyone-likes-helpful-trash-robot">Cornell Chronicle</a> &middot;
+          <a href="https://www.usatoday.com/story/news/nation/2023/04/15/video-robot-trash-cans-new-york-city/11666593002/">USA TODAY</a> &middot;
+          <a href="https://spectrum.ieee.org/nyc-trash-robots">IEEE Spectrum</a>
+        </div>
+      </div>
+
+      <!-- Bridging Lab and Road -->
+      <div class="project">
+        <h3>Bridging Lab and Road for Driving Research</h3>
+        <div class="project-meta">
+          <span class="pub-venue">CHI '24</span>
+          <span class="pub-venue">CHI '22</span>
+          <span class="pub-award">Honorable Mention Award</span>
+        </div>
+        <p class="project-desc">
+          Extended driving simulation from the lab to the road, enabling researchers to study human responses to simulated driving scenarios using real vehicles in real traffic. The Portobello system and the broader XR-OOM platform bridge controlled experimentation with ecological validity.
+        </p>
+        <div class="project-video">
+          <div class="lite-yt" data-id="Y-R6iiF60jY" title="Portobello: Extending driving simulation from the lab to the road">
+            <svg viewBox="0 0 18 18"><path d="M3 2l12 7-12 7z"/></svg>
+          </div>
+        </div>
+        <div class="project-links">
+          <a href="https://dl.acm.org/doi/full/10.1145/3613904.3642341">CHI '24 Paper</a>
+          <a href="https://dl.acm.org/doi/abs/10.1145/3491102.3517704">CHI '22 Paper (XR-OOM)</a>
+          <a href="https://dl.acm.org/doi/full/10.1145/3706599.3720255">CHI EA '25 (Diffusion Models)</a>
+        </div>
+      </div>
     </section>
 
     <!-- Publications -->
@@ -287,112 +371,54 @@
 
     </div> <!-- /.col-main -->
 
-    <!-- Sidebar -->
-    <div class="col-side fade-in">
+    <!-- Sidebar: Open-Source Projects -->
+    <aside class="col-side fade-in" id="open-source" aria-label="Open-source projects">
+      <h2 class="oss-heading">Open-Source Projects</h2>
 
-      <!-- Robot Build Feature -->
-      <div class="robot-build" id="robot">
-        <div class="robot-build-label">I Built This</div>
-        <h2>Mobile Hoverboard Robot Base</h2>
-        <a class="robot-build-img-link" href="https://irl.tech.cornell.edu/mobile_hoverboard_robot_base/" target="_blank" rel="noopener">
-          <img src="https://irl.tech.cornell.edu/mobile_hoverboard_robot_base/assets/images/trashbot_demo.gif" alt="Mobile Hoverboard Robot Base in action" class="robot-build-img">
+      <!-- Dandelion -->
+      <div class="oss-card">
+        <div class="oss-card-label">Tool</div>
+        <h3>Dandelion</h3>
+        <p class="oss-card-tagline">Sculpt what the model is thinking.</p>
+        <a class="oss-card-img-link" href="https://github.com/FrankBu0616/Dandelion" target="_blank" rel="noopener">
+          <img src="https://raw.githubusercontent.com/FrankBu0616/Dandelion/main/dandelion_demo.gif" alt="Dandelion in action: parallel plants, graft, mute" class="oss-card-img" loading="lazy">
         </a>
-        <p class="robot-build-desc">
+        <p class="oss-card-desc">
+          A local-first context editor for AI conversations. Fork a question into parallel <em>plants</em>, <em>mute</em> what shouldn't reach the model, and <em>graft</em> the branches you want back into the trunk. Context routing belongs to the app, not the model.
+        </p>
+        <ul class="oss-specs">
+          <li><span class="spec-label">Stack</span>Zero-dep JS · Node 20 · BYO keys</li>
+          <li><span class="spec-label">Models</span>Anthropic Claude · Ollama (per-plant)</li>
+          <li><span class="spec-label">Status</span>Pre-alpha · MIT</li>
+        </ul>
+        <div class="oss-card-links">
+          <a class="oss-card-cta" href="https://dandelion-three.vercel.app/" target="_blank" rel="noopener">Live Demo</a>
+          <a href="https://github.com/FrankBu0616/Dandelion" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+
+      <!-- Mobile Hoverboard Robot Base -->
+      <div class="oss-card" id="robot">
+        <div class="oss-card-label">Hardware</div>
+        <h3>Mobile Hoverboard Robot Base</h3>
+        <a class="oss-card-img-link" href="https://irl.tech.cornell.edu/mobile_hoverboard_robot_base/" target="_blank" rel="noopener">
+          <img src="https://irl.tech.cornell.edu/mobile_hoverboard_robot_base/assets/images/trashbot_demo.gif" alt="Mobile Hoverboard Robot Base in action" class="oss-card-img" loading="lazy">
+        </a>
+        <p class="oss-card-desc">
           A low-cost, modular mobile robot platform built from a deconstructed hoverboard. Attaches to everyday objects — trash bins, furniture — for field HRI studies. Uses Wizard of Oz teleoperation via dual Raspberry Pi and ROS 2 Humble.
         </p>
-        <ul class="robot-specs">
+        <ul class="oss-specs">
           <li><span class="spec-label">Drive</span>Hoverboard motors + ODrive controller</li>
           <li><span class="spec-label">Compute</span>Dual Raspberry Pi · ROS 2 Humble</li>
           <li><span class="spec-label">Control</span>8BitDo + Insta360 FPV feed</li>
         </ul>
-        <div class="robot-build-links">
-          <a class="robot-build-cta" href="https://irl.tech.cornell.edu/mobile_hoverboard_robot_base/" target="_blank" rel="noopener">Project Page</a>
+        <div class="oss-card-links">
+          <a class="oss-card-cta" href="https://irl.tech.cornell.edu/mobile_hoverboard_robot_base/" target="_blank" rel="noopener">Project Page</a>
           <a href="https://github.com/IRL-CT/Mobile_HRI_Lab_Hub" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
 
-      <!-- Selected Projects -->
-      <div id="projects">
-      <h2>Selected Projects</h2>
-
-      <!-- VLM for Social Intelligence -->
-      <div class="project">
-        <h3>Vision-Language Models for Social Robot Intelligence</h3>
-        <div class="project-meta">
-          <span class="pub-venue">arXiv</span>
-          <span class="pub-venue">ICSR '24</span>
-        </div>
-        <p class="project-desc">
-          Investigating how vision-language models can serve as proxies for social intelligence in human-robot interaction, including building datasets and benchmarks for evaluating social signaling in urban public HRI scenarios.
-        </p>
-        <div class="project-video">
-          <div class="lite-yt" data-id="R8sI5auGlc8" title="Bootstrapping Autonomy in Social Human-Robot Interactions using Vision Language Models">
-            <svg viewBox="0 0 18 18"><path d="M3 2l12 7-12 7z"/></svg>
-          </div>
-        </div>
-        <div class="project-links">
-          <a href="https://arxiv.org/abs/2512.07177">arXiv Preprint</a>
-          <a href="https://link.springer.com/chapter/10.1007/978-981-96-3525-2_38">ICSR '24 (ReStory)</a>
-          <a href="https://link.springer.com/chapter/10.1007/978-981-96-3525-2_40">ICSR '24 (SSUP-HRI)</a>
-        </div>
-      </div>
-
-      <!-- Trash Barrel Robots -->
-      <div class="project">
-        <h3>Trash Barrel Robots in Public Spaces</h3>
-        <div class="project-meta">
-          <span class="pub-venue">THRI '25</span>
-          <span class="pub-venue">CHI '24</span>
-          <span class="pub-venue">HRI '23</span>
-          <span class="pub-award">Featured on CNN, NPR, IEEE Spectrum</span>
-        </div>
-        <p class="project-desc">
-          Deployed autonomous robotic trash barrels in a New York City public plaza to study how people interact with robots in uncontrolled social settings. The project produced multiple publications studying emergent interactions, public sense-making, and field deployment methodology, and received widespread media coverage.
-        </p>
-        <div class="project-video">
-          <div class="lite-yt" data-id="pS5ptE2USSo" title="Trash Barrel Robots in the City">
-            <svg viewBox="0 0 18 18"><path d="M3 2l12 7-12 7z"/></svg>
-          </div>
-        </div>
-        <div class="project-links">
-          <a href="https://dl.acm.org/doi/full/10.1145/3731252">THRI '25 Paper</a>
-          <a href="https://dl.acm.org/doi/10.1145/3613904.3642610">CHI '24 Paper</a>
-          <a href="https://dl.acm.org/doi/abs/10.1145/3568294.3580206">HRI '23 Paper</a>
-          <a href="https://dl.acm.org/doi/10.1145/3613905.3651044">CHI EA '24 Field Notes</a>
-        </div>
-        <div class="project-press">
-          Press: <a href="https://www.cnn.com/videos/business/2023/04/11/robotic-trash-cans-nyc-cornell-contd-orig-fj.cnn-business">CNN</a> &middot;
-          <a href="https://www.npr.org/2023/04/16/1170293941/researchers-released-robot-trash-cans-in-nyc-to-see-how-people-would-react#:~:text=Researchers%20released%20robot%20trash%20cans,how%20people%20would%20react%20%3A%20NPR&text=Books%20Podcast-,Researchers%20released%20robot%20trash%20cans%20in%20NYC%20to%20see%20how,interacted%20with%20the%20robo%2Dbins.">NPR</a> &middot;
-          <a href="https://news.cornell.edu/stories/2023/04/almost-everyone-likes-helpful-trash-robot">Cornell Chronicle</a> &middot;
-          <a href="https://www.usatoday.com/story/news/nation/2023/04/15/video-robot-trash-cans-new-york-city/11666593002/">USA TODAY</a> &middot;
-          <a href="https://spectrum.ieee.org/nyc-trash-robots">IEEE Spectrum</a>
-        </div>
-      </div>
-
-      <!-- Portobello -->
-      <div class="project">
-        <h3>Portobello: Driving Simulation on Real Roads</h3>
-        <div class="project-meta">
-          <span class="pub-venue">CHI '24</span>
-          <span class="pub-venue">CHI '22</span>
-          <span class="pub-award">Honorable Mention Award</span>
-        </div>
-        <p class="project-desc">
-          Extended driving simulation from the lab to the road, enabling researchers to study human responses to simulated driving scenarios using real vehicles in real traffic. The Portobello system and the broader XR-OOM platform bridge controlled experimentation with ecological validity.
-        </p>
-        <div class="project-video">
-          <div class="lite-yt" data-id="Y-R6iiF60jY" title="Portobello: Extending driving simulation from the lab to the road">
-            <svg viewBox="0 0 18 18"><path d="M3 2l12 7-12 7z"/></svg>
-          </div>
-        </div>
-        <div class="project-links">
-          <a href="https://dl.acm.org/doi/full/10.1145/3613904.3642341">CHI '24 Paper</a>
-          <a href="https://dl.acm.org/doi/abs/10.1145/3491102.3517704">CHI '22 Paper (XR-OOM)</a>
-          <a href="https://dl.acm.org/doi/full/10.1145/3706599.3720255">CHI EA '25 (Diffusion Models)</a>
-        </div>
-      </div>
-      </div> <!-- /#projects -->
-    </div> <!-- /.col-side -->
+    </aside> <!-- /.col-side -->
 
     </div> <!-- /.two-col -->
 
