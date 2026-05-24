@@ -417,6 +417,29 @@ section h2 {
   overflow: hidden;
 }
 
+/* Editorial side-by-side: text left, video right (desktop) */
+@media (min-width: 720px) {
+  .project {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    column-gap: 1.5rem;
+    row-gap: 0;
+    align-items: start;
+  }
+  .project > :not(.project-video) {
+    grid-column: 1;
+  }
+  .project-video {
+    grid-column: 2;
+    /* Span all rows of the card so the right column doesn't gap-out */
+    grid-row: 1 / span 99;
+    margin-top: 0;
+    align-self: start;
+    max-width: 280px;
+    width: 100%;
+  }
+}
+
 /* Project thumbnail */
 .project-thumb-link { display: block; margin-top: .6rem; }
 .project-thumb {
