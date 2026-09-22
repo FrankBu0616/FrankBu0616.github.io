@@ -40,9 +40,6 @@
 [data-theme="dark"] .job-banner {
   border-color: oklch(30% 0.06 260);
 }
-[data-theme="dark"] .hero-img {
-  filter: grayscale(10%) brightness(.95);
-}
 [data-theme="dark"] .pub-venue {
   color: var(--accent);
   background: var(--accent-light);
@@ -249,13 +246,26 @@ main {
   border-bottom: 1px solid var(--border);
 }
 .hero-img {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  object-fit: cover;
+  position: relative;
+  width: 220px;
+  aspect-ratio: 640 / 785;
+  border-radius: 12px;
+  overflow: hidden;
   flex-shrink: 0;
-  filter: grayscale(15%);
+  box-shadow: 0 1px 2px oklch(0% 0 0 / .06), 0 8px 24px oklch(0% 0 0 / .08);
 }
+.hero-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity var(--dur-slow, .5s) var(--ease-out, ease), transform var(--dur-slow, .5s) var(--ease-out, ease);
+}
+/* Day/night portrait follows the theme toggle */
+.hero-img-night { opacity: 0; }
+[data-theme="dark"] .hero-img-night { opacity: 1; }
+[data-theme="dark"] .hero-img-day { opacity: 0; }
 .hero-text h1 {
   font-family: var(--font-serif);
   font-size: clamp(1.6rem, 1.2rem + 1.2vw, 2.2rem);
@@ -803,13 +813,9 @@ section h2 {
 
 /* ── Micro-interactions ── */
 
-/* Profile image — gentle scale + color on hover */
-.hero-img {
-  transition: transform var(--dur-mid) var(--ease-out), filter var(--dur-mid) var(--ease-out);
-}
-.hero-img:hover {
-  transform: scale(1.05);
-  filter: grayscale(0%);
+/* Profile image — gentle zoom inside the frame on hover */
+.hero-img:hover img {
+  transform: scale(1.02);
 }
 
 /* Nav links — animated underline that slides in from left */
@@ -985,7 +991,7 @@ footer {
 }
 @media (max-width: 640px) {
   .hero { flex-direction: column; align-items: center; text-align: center; gap: 1.5rem; padding: 2rem 0 2rem; }
-  .hero-img { width: 120px; height: 120px; }
+  .hero-img { width: 200px; }
   .hero-links { justify-content: center; }
   .job-banner { flex-direction: column; text-align: center; }
   .nav-links { gap: 1rem; }
@@ -1058,7 +1064,7 @@ footer {
   footer { padding: 1rem 0; }
 
   /* Ensure profile photo prints */
-  .hero-img { filter: none; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .hero-img img { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
   /* Venue badges print cleanly */
   .pub-venue, .pub-award { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
